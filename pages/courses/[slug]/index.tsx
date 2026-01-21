@@ -33,12 +33,14 @@ const highlights = [
     "Flexible Learning Schedule",
     "Lifetime Access & Updates",
     "24/7 Learning Support",
+    "Industry-Ready Curriculum",
 ];
 
 
 
+
 export default function CoursePage({ course }: Props) {
-    
+
     const [showVideo, setShowVideo] = useState(false);
     const [showJoinForm, setShowJoinForm] = useState(false);
     const [formData, setFormData] = useState({
@@ -56,7 +58,7 @@ export default function CoursePage({ course }: Props) {
         );
     }
 
-  
+
 
     return (
         <>
@@ -124,7 +126,7 @@ export default function CoursePage({ course }: Props) {
                         animate={{ opacity: 1, x: 0 }}
                         className="relative h-full  flex flex-col items-center justify-center"
                     >
-                      
+
 
                         {/* IMAGE */}
                         <div className="relative w-full max-w-md">
