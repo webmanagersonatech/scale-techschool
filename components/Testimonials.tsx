@@ -39,19 +39,19 @@ export default function Testimonials() {
     const [active, setActive] = useState(1)
 
     return (
-        <section className="bg-gradient-to-br from-gray-50 via-gray-100 to-gray-200 font-body py-10">
+        <section className=" font-body py-10">
             <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
                 {/* LEFT */}
                 <div>
-                    <p className="text-sm font-heading tracking-widest text-gray-500 mb-3">
+                    <p className="text-sm font-heading tracking-widest text-white mb-3">
                         TESTIMONIALS
                     </p>
-                    <h2 className="text-4xl font-heading text-gray-900 leading-tight">
+                    <h2 className="text-4xl font-heading text-white leading-tight">
                         What Our Students <br /> Have To Say
                     </h2>
                     <div className="w-20 h-1 bg-emerald-400 rounded-full my-5" />
-                    <p className="text-gray-600 max-w-md">
+                    <p className="text-white max-w-md">
                         Real feedback from students who transformed their careers with us.
                     </p>
                 </div>
