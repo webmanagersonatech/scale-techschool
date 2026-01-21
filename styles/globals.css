@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply font-body text-gray-800 bg-white;
+}
+
+@keyframes rotate-circle {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Add a class for the rotating group or circle */
+.rotating-circle {
+  animation: rotate-circle 60s linear infinite;
+  transform-origin: 80px 80px;
+  /* center of your circle (cx,cy) */
+}
+
+/* Subtle grid */
+.bg-grid-pattern {
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+}
+
+/* Diagonal stripes */
+.bg-stripes {
+  background-image: repeating-linear-gradient(45deg,
+      rgba(0, 128, 128, 0.05),
+      rgba(0, 128, 128, 0.05) 1px,
+      transparent 1px,
+      transparent 20px);
+}
