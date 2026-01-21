@@ -63,9 +63,25 @@ export default function CoursePage({ course }: Props) {
     return (
         <>
             <Head>
+                {/* Basic SEO */}
                 <title>{course.title} | MyTech Academy</title>
                 <meta name="description" content={course.description} />
+
+                {/* Open Graph (Facebook, WhatsApp, LinkedIn) */}
+                <meta property="og:type" content="website" />
+                <meta property="og:title" content={`${course.title} | MyTech Academy`} />
+                <meta property="og:description" content={course.description} />
+                <meta property="og:image" content={course.image} />
+                <meta property="og:url" content={`https://yourdomain.com/courses/${course.slug}`} />
+                <meta property="og:site_name" content="MyTech Academy" />
+
+                {/* Twitter Card */}
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:title" content={`${course.title} | MyTech Academy`} />
+                <meta name="twitter:description" content={course.description} />
+                <meta name="twitter:image" content={course.image} />
             </Head>
+
 
             <Navbar />
 
