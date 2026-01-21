@@ -20,7 +20,7 @@ export default function TechnologyProgramsCarousel() {
       {/* Background */}
       <div className="absolute inset-0 flex">
         <div className="w-1/2 bg-gray-100" />
-        <div className="w-1/2 bg-gray-200" />
+        <div className="w-1/2 bg-royal/10" />
       </div>
 
       <div className="relative max-w-7xl mx-auto px-6">

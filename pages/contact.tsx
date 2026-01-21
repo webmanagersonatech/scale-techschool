@@ -1,6 +1,8 @@
 import { useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import Head from "next/head";
+
 import { Send } from "lucide-react"
 import {
   FaEnvelope,
@@ -44,6 +46,49 @@ export default function ContactPage() {
 
   return (
     <>
+ 
+  <Head>
+    <title>Contact Us | Sona tech school</title>
+
+    <meta
+      name="description"
+      content="Get in touch with Sona tech school for inquiries, support, or partnerships. We're here to help you with all your questions."
+    />
+
+    <meta
+      name="keywords"
+      content="contact us, support, customer service, Sona tech school, get in touch"
+    />
+
+    <meta name="author" content="Sona tech school" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    {/* Open Graph (Facebook, LinkedIn) */}
+    <meta property="og:title" content="Contact Us | Sona tech school" />
+    <meta
+      property="og:description"
+      content="Reach out to Sona tech school for support, inquiries, or collaborations."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://yourwebsite.com/contact" />
+    <meta property="og:image" content="https://yourwebsite.com/og-image.jpg" />
+
+    {/* Twitter */}
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Contact Us | Sona tech school" />
+    <meta
+      name="twitter:description"
+      content="Contact Sona tech school for any questions or support needs."
+    />
+    <meta name="twitter:image" content="https://yourwebsite.com/og-image.jpg" />
+
+    {/* Canonical URL */}
+    <link rel="canonical" href="https://yourwebsite.com/contact" />
+  </Head>
+
+ 
+
+
       <Navbar />
 
       <main className="mx-auto bg-gray-50">

@@ -13,18 +13,27 @@ export default function Footer() {
 
           {/* Brand */}
           <div>
-            <h2 className="text-2xl font-heading mb-4">Sona Tech-School</h2>
+            <div className="flex items-center gap-3 mb-4">
+              <img
+                src="https://pgdm.scaleindia.in/images/about/logo.webp"  
+                alt="Sona Tech-School Logo"
+                className="w-10 h-10 object-contain"
+              />
+              <h2 className="text-2xl font-heading">Sona Tech-School</h2>
+            </div>
+
             <p className="text-white/80 text-sm leading-relaxed">
               Empowering future leaders with world-class education,
               innovation, and excellence.
             </p>
           </div>
 
+
           {/* Quick Links */}
           <div>
             <h3 className="font-semibold mb-4">Quick Links</h3>
             <ul className="space-y-2 text-sm">
-              {["About", "Courses", "Admissions", "Faculty", "Contact"].map(
+              {["Courses", "Faculty", "Contact"].map(
                 (item) => (
                   <li key={item}>
                     <Link
