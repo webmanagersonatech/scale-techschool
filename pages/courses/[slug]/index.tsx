@@ -38,7 +38,7 @@ const highlights = [
 
 
 export default function CoursePage({ course }: Props) {
-    const [activeTab, setActiveTab] = useState(0);
+    
     const [showVideo, setShowVideo] = useState(false);
     const [showJoinForm, setShowJoinForm] = useState(false);
     const [formData, setFormData] = useState({
@@ -56,13 +56,7 @@ export default function CoursePage({ course }: Props) {
         );
     }
 
-    const logos = [
-        "/images/company-logo/1.png",
-        "/images/company-logo/2.png",
-        "/images/company-logo/3.png",
-        "/images/company-logo/4.png",
-        "/images/company-logo/5.png",
-    ];
+  
 
     return (
         <>
@@ -130,8 +124,7 @@ export default function CoursePage({ course }: Props) {
                         animate={{ opacity: 1, x: 0 }}
                         className="relative h-full  flex flex-col items-center justify-center"
                     >
-                        {/* Soft glow */}
-                        <div className="absolute -inset-10 bg-emerald-500/10 blur-3xl rounded-full -z-10" />
+                      
 
                         {/* IMAGE */}
                         <div className="relative w-full max-w-md">
