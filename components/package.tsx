@@ -280,7 +280,7 @@ export default function PackageSection() {
                     ].map((stat, i) => (
                         <motion.div
                             key={i}
-                            className={`bg-white text-gray-900 rounded-xl border border-dashed border-gray-300 p-4 flex flex-col items-center justify-center hover:scale-105 transition-transform duration-300 relative overflow-hidden stats-card`}
+                            className={`bg-white text-gray-900 rounded-xl border border-dashed border-emerald-300 p-4 flex flex-col items-center justify-center hover:scale-105 transition-transform duration-300 relative overflow-hidden stats-card`}
                             variants={fadeUps}
                             initial="hidden"
                             whileInView="visible"
