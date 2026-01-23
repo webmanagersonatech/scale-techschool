@@ -1,7 +1,7 @@
 "use client"
 
 import Image from "next/image"
-import { FaUniversity, FaUserGraduate, FaBuilding, FaBookOpen, FaProjectDiagram } from "react-icons/fa";
+import { FaUniversity, FaUserGraduate, FaBuilding, FaBookOpen, FaProjectDiagram, FaUserTie, FaUsers, FaCheckCircle, FaGraduationCap } from "react-icons/fa";
 import { motion } from "framer-motion";
 
 const placements = [
@@ -270,28 +270,30 @@ export default function PackageSection() {
                 </motion.div>
 
                 {/* Stats Grid - Floating Cards */}
-                <div className="grid grid-cols-2 md:grid-cols-5 gap-6 md:gap-8 -mt-12 px-4 md:px-12 relative z-20">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 -mt-12 px-4 md:px-12 relative z-20">
                     {[
-                        { value: "260+", label: "Expert Consultants" },
-                        { value: "975+", label: "Active Clients" },
-                        { value: "724+", label: "Projects Delivered" },
-                        { value: "89+", label: "Orders in Queue" },
-                        { value: "95%", label: "Issue Resolved" },
+                        { value: "260+", label: "Expert Consultants", icon: <FaUserTie />, color: "emerald-400" },
+                        { value: "975+", label: "Active Clients", icon: <FaUsers />, color: "emerald-300" },
+                        { value: "724+", label: "Projects Delivered", icon: <FaProjectDiagram />, color: "emerald-200" },
+
+                        { value: "120+", label: "Courses Completed", icon: <FaGraduationCap />, color: "emerald-300" },
                     ].map((stat, i) => (
                         <motion.div
                             key={i}
-                            className="bg-white text-gray-900 rounded-xl border border-dashed border-gray-300 p-6 flex flex-col items-center justify-center hover:scale-105 transition-transform duration-300 relative overflow-hidden stats-card"
-
+                            className={`bg-white text-gray-900 rounded-xl border border-dashed border-gray-300 p-4 flex flex-col items-center justify-center hover:scale-105 transition-transform duration-300 relative overflow-hidden stats-card`}
                             variants={fadeUps}
                             initial="hidden"
                             whileInView="visible"
                             viewport={{ once: true, amount: 0.3 }}
                             custom={i}
                         >
+                            {/* Icon with colored border */}
+                            <div className={`text-emerald-500 mb-3 bg-emerald-100 p-3 rounded-xl border-2 border-emerald-500`}>
+                                {stat.icon}
+                            </div>
+
                             <h3 className="text-3xl font-bold">{stat.value}</h3>
-                            <p className="mt-2 text-sm text-gray-600 text-center">
-                                {stat.label}
-                            </p>
+                            <p className="mt-2 text-sm text-gray-600 text-center">{stat.label}</p>
                         </motion.div>
                     ))}
                 </div>

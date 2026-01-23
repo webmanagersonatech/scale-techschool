@@ -29,7 +29,7 @@ const navItems = [
   //     { name: "Eligibility", href: "/admissions/eligibility" },
   //   ],
   // },
-  { name: "Faculty", href: "/faculty" },
+  // { name: "Faculty", href: "/faculty" },
   { name: "Contact", href: "/contact" },
 ];
 

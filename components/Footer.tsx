@@ -15,7 +15,7 @@ export default function Footer() {
           <div>
             <div className="flex items-center gap-3 mb-4">
               <img
-                src="https://pgdm.scaleindia.in/images/about/logo.webp"  
+                src="https://pgdm.scaleindia.in/images/about/logo.webp"
                 alt="Sona Tech-School Logo"
                 className="w-10 h-10 object-contain"
               />
@@ -33,7 +33,7 @@ export default function Footer() {
           <div>
             <h3 className="font-semibold mb-4">Quick Links</h3>
             <ul className="space-y-2 text-sm">
-              {["Courses", "Faculty", "Contact"].map(
+              {["Courses", "Contact"].map(
                 (item) => (
                   <li key={item}>
                     <Link
@@ -50,7 +50,7 @@ export default function Footer() {
 
           {/* Courses */}
           <div>
-            <h3 className="font-semibold mb-4">Programs</h3>
+            <h3 className="font-semibold mb-4">Courses</h3>
             <ul className="space-y-2 text-sm">
               {["MBA", "BBA", "PhD"].map((item) => (
                 <li key={item}>

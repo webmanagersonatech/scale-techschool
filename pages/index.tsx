@@ -6,6 +6,7 @@ import Testimonials from "../components/Testimonials"
 import PackageSection from "../components/package"
 import TechnologyProgramsCarousel from "../components/TechnologyProgramsCarousel"
 import PlacedCompanies from "../components/PlacedCompanies"
+import AdvisorBot from "../components/AdvisorBot"
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       <TechnologyProgramsCarousel />
       <PlacedCompanies />
       <Testimonials />
+      <AdvisorBot/>
       <Footer />
     </>
   )

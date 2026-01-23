@@ -4,6 +4,8 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import SpeedSection from "../../../components/Drop";
 import ProgramTabs from "../../../components/Overview";
+import { createJoiner } from "../../../lib/api/joiner";
+import { toast } from "sonner";
 import {
     Calendar,
     Clock,
@@ -43,6 +45,8 @@ export default function CoursePage({ course }: Props) {
 
     const [showVideo, setShowVideo] = useState(false);
     const [showJoinForm, setShowJoinForm] = useState(false);
+    const [isSubmitting, setIsSubmitting] = useState(false);
+
     const [formData, setFormData] = useState({
         name: "",
         email: "",
@@ -57,8 +61,6 @@ export default function CoursePage({ course }: Props) {
             </p>
         );
     }
-
-
 
     return (
         <>
@@ -326,13 +328,36 @@ export default function CoursePage({ course }: Props) {
 
                         {/* FORM */}
                         <form
-                            onSubmit={(e) => {
+                            onSubmit={async (e) => {
                                 e.preventDefault();
-                                console.log("JOIN FORM 👉", formData);
-                                setShowJoinForm(false);
+                                if (isSubmitting) return;
+
+                                try {
+                                    setIsSubmitting(true);
+
+                                    console.log("JOIN FORM 👉", formData);
+
+                                    const res = await createJoiner({
+                                        name: formData.name,
+                                        email: formData.email,
+                                        phone: formData.phone,
+                                        course: formData.course,
+                                    });
+
+                                    console.log("API RESPONSE 👉", res);
+
+                                    toast.success(res.message);
+                                    setShowJoinForm(false);
+                                } catch (err: any) {
+                                    console.error("JOIN ERROR 👉", err);
+                                    toast.error(err.message || "Failed to join");
+                                } finally {
+                                    setIsSubmitting(false);
+                                }
                             }}
                             className="space-y-6"
                         >
+
                             {/* Name */}
                             <input
                                 type="text"
@@ -385,10 +410,36 @@ export default function CoursePage({ course }: Props) {
                             {/* Floating Submit Button */}
                             <div className="absolute -bottom-6 right-8">
                                 <button
+                                    disabled={isSubmitting}
                                     type="submit"
                                     className="bg-emerald-500 hover:bg-emerald-700 border border-emerald-900 text-white px-10 py-3 rounded-full tracking-widest text-sm shadow-xl transition"
                                 >
-                                    SUBMIT
+                                    {isSubmitting ? (
+                                        <>
+                                            <svg
+                                                className="h-4 w-4 animate-spin"
+                                                viewBox="0 0 24 24"
+                                            >
+                                                <circle
+                                                    className="opacity-25"
+                                                    cx="12"
+                                                    cy="12"
+                                                    r="10"
+                                                    stroke="currentColor"
+                                                    strokeWidth="4"
+                                                    fill="none"
+                                                />
+                                                <path
+                                                    className="opacity-75"
+                                                    fill="currentColor"
+                                                    d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
+                                                />
+                                            </svg>
+
+                                        </>
+                                    ) : (
+                                        "SUBMIT"
+                                    )}
                                 </button>
                             </div>
                         </form>

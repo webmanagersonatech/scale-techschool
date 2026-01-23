@@ -2,7 +2,8 @@ import { useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Head from "next/head";
-
+import { createContact } from "../lib/api/contact";
+import { toast } from "sonner";
 import { Send } from "lucide-react"
 import {
   FaEnvelope,
@@ -16,6 +17,7 @@ import {
 } from "react-icons/fa";
 
 export default function ContactPage() {
+  const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -30,63 +32,74 @@ export default function ContactPage() {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form Submitted:", formData);
-    alert("Message sent! Check console for data.");
-    setFormData({
-      firstName: "",
-      lastName: "",
-      phone: "",
-      email: "",
-      message: "",
-      subject: "general",
-    });
+    setLoading(true);
+    try {
+      const response = await createContact(formData);
+      if (response.success) {
+        toast.success(response.message || "Message sent successfully!");
+        setFormData({
+          firstName: "",
+          lastName: "",
+          phone: "",
+          email: "",
+          subject: "general",
+          message: "",
+        });
+      } else {
+        toast.error(response.message || "Failed to send message");
+      }
+    } catch (error: any) {
+      toast.error(error.message || "Something went wrong");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
     <>
- 
-  <Head>
-    <title>Contact Us | Sona tech school</title>
 
-    <meta
-      name="description"
-      content="Get in touch with Sona tech school for inquiries, support, or partnerships. We're here to help you with all your questions."
-    />
+      <Head>
+        <title>Contact Us | Sona tech school</title>
 
-    <meta
-      name="keywords"
-      content="contact us, support, customer service, Sona tech school, get in touch"
-    />
+        <meta
+          name="description"
+          content="Get in touch with Sona tech school for inquiries, support, or partnerships. We're here to help you with all your questions."
+        />
 
-    <meta name="author" content="Sona tech school" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta
+          name="keywords"
+          content="contact us, support, customer service, Sona tech school, get in touch"
+        />
 
-    {/* Open Graph (Facebook, LinkedIn) */}
-    <meta property="og:title" content="Contact Us | Sona tech school" />
-    <meta
-      property="og:description"
-      content="Reach out to Sona tech school for support, inquiries, or collaborations."
-    />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://yourwebsite.com/contact" />
-    <meta property="og:image" content="https://yourwebsite.com/og-image.jpg" />
+        <meta name="author" content="Sona tech school" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    {/* Twitter */}
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Contact Us | Sona tech school" />
-    <meta
-      name="twitter:description"
-      content="Contact Sona tech school for any questions or support needs."
-    />
-    <meta name="twitter:image" content="https://yourwebsite.com/og-image.jpg" />
+        {/* Open Graph (Facebook, LinkedIn) */}
+        <meta property="og:title" content="Contact Us | Sona tech school" />
+        <meta
+          property="og:description"
+          content="Reach out to Sona tech school for support, inquiries, or collaborations."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://yourwebsite.com/contact" />
+        <meta property="og:image" content="https://yourwebsite.com/og-image.jpg" />
 
-    {/* Canonical URL */}
-    <link rel="canonical" href="https://yourwebsite.com/contact" />
-  </Head>
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Contact Us | Sona tech school" />
+        <meta
+          name="twitter:description"
+          content="Contact Sona tech school for any questions or support needs."
+        />
+        <meta name="twitter:image" content="https://yourwebsite.com/og-image.jpg" />
 
- 
+        {/* Canonical URL */}
+        <link rel="canonical" href="https://yourwebsite.com/contact" />
+      </Head>
+
+
 
 
       <Navbar />
@@ -307,6 +320,7 @@ export default function ContactPage() {
 
                     <button
                       type="submit"
+                      disabled={loading}
                       className="
     mt-6 w-full
     flex items-center justify-center gap-2
@@ -323,8 +337,8 @@ export default function ContactPage() {
     focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2
   "
                     >
-                      <Send size={16} />
-                      Send Message
+                      {loading ? "Sending..." : <Send size={16} />}
+                      {loading ? "" : "Send Message"}
                     </button>
 
                   </form>
