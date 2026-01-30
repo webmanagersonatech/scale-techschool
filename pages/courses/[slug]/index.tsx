@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import SpeedSection from "../../../components/Drop";
 import ProgramTabs from "../../../components/Overview";
 import { createJoiner } from "../../../lib/api/joiner";
+
 import { toast } from "sonner";
 import {
     Calendar,
@@ -25,7 +26,6 @@ interface Props {
     course: Course;
 }
 
-const tabs = ["Overview", "Syllabus", "FAQ"];
 
 const highlights = [
     "50 Hours Instructor-Led Training",
@@ -37,6 +37,8 @@ const highlights = [
     "24/7 Learning Support",
     "Industry-Ready Curriculum",
 ];
+
+
 
 
 
@@ -202,7 +204,7 @@ export default function CoursePage({ course }: Props) {
                         {/* CTA */}
                         <div className="flex flex-wrap gap-4 mt-20">
                             <a
-                                href={course.brochure}
+                                href="/images/brochure/brochure.pdf"
                                 download
                                 className="flex items-center gap-2 px-6 py-3 rounded-full border border-emerald-600 text-emerald-600 hover:bg-emerald-600 hover:text-white transition"
                             >

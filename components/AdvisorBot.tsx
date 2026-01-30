@@ -74,7 +74,7 @@ export default function AdvisorBot() {
                         <div className="bg-royal text-white p-4 flex justify-between items-center">
                             <div className="flex items-center gap-2">
                                 <FaUserTie className="text-emerald-400" />
-                                <p className="font-semibold">Talk to an Advisor</p>
+                                <p className="font-semibold ">Talk to an Advisor</p>
                             </div>
                             <FaTimes
                                 className="cursor-pointer hover:text-emerald-400"

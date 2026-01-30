@@ -33,37 +33,55 @@ export default function Footer() {
           <div>
             <h3 className="font-semibold mb-4">Quick Links</h3>
             <ul className="space-y-2 text-sm">
-              {["Courses", "Contact"].map(
-                (item) => (
-                  <li key={item}>
-                    <Link
-                      href={`/${item.toLowerCase()}`}
-                      className="text-white/80 hover:text-gold transition"
-                    >
-                      {item}
-                    </Link>
-                  </li>
-                )
-              )}
+              <li>
+                <Link
+                  href="#courses"
+                  className="text-white/80 hover:text-gold transition"
+                >
+                  Courses
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/contact"
+                  className="text-white/80 hover:text-gold transition"
+                >
+                  Contact
+                </Link>
+              </li>
             </ul>
           </div>
 
-          {/* Courses */}
+
           <div>
-            <h3 className="font-semibold mb-4">Courses</h3>
+            <h3 className="font-semibold mb-4">MBA Courses</h3>
             <ul className="space-y-2 text-sm">
-              {["MBA", "BBA", "PhD"].map((item) => (
-                <li key={item}>
-                  <Link
-                    href={`/courses/${item.toLowerCase()}`}
-                    className="text-white/80 hover:text-gold transition"
-                  >
-                    {item}
-                  </Link>
-                </li>
-              ))}
+              <li>
+                <Link
+                  href="https://pgdm.scaleindia.in/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white/80 hover:text-gold transition"
+                >
+                  PGDM – Bangalore Campus
+                </Link>
+              </li>
+
+              <li>
+                <Link
+                  href="https://www.sonabusinessschool.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white/80 hover:text-gold transition"
+                >
+                  MBA – Salem Campus
+                </Link>
+              </li>
+
+
             </ul>
           </div>
+
 
           {/* Social / Contact */}
           <div>

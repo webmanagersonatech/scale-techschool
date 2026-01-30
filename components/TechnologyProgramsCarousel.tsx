@@ -15,7 +15,7 @@ interface CoursePageProps {
 
 export default function TechnologyProgramsCarousel() {
   return (
-    <section className="relative py-6 overflow-hidden">
+    <section  id="courses" className="relative py-6 overflow-hidden">
 
       {/* Background */}
       <div className="absolute inset-0 flex">
