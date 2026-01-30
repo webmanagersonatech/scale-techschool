@@ -230,32 +230,23 @@ export default function Hero() {
         <div className="h-10 w-px bg-gradient-to-b from-transparent via-white/40 to-transparent" />
 
         {[
-          {
-            Icon: Instagram,
-            label: "Instagram",
-            hoverColor: "group-hover:text-pink-500",
-          },
-          {
-            Icon: Facebook,
-            label: "Facebook",
-            hoverColor: "group-hover:text-blue-500",
-          },
-          {
-            Icon: X,
-            label: "Twitter / X",
-            hoverColor: "group-hover:text-black",
-          },
-        ].map(({ Icon, label, hoverColor }, i) => (
+          { Icon: Instagram, label: "Instagram", hoverColor: "group-hover:text-pink-500", url: "https://www.instagram.com/sona_mba/?hl=en" },
+          { Icon: Facebook, label: "Facebook", hoverColor: "group-hover:text-blue-500", url: "https://www.facebook.com/sonamanagement" },
+          { Icon: X, label: "Twitter / X", hoverColor: "group-hover:text-black", url: "https://x.com/sonamba" },
+        ].map(({ Icon, label, hoverColor, url }, i) => (
           <div key={i} className="flex flex-col items-center gap-2">
 
             {/* ICON ITEM */}
-            <div
-              className="group cursor-pointer flex items-center overflow-hidden
-        w-9 hover:w-36
-        transition-all duration-500 ease-out
-        rounded-full border border-white/15
-        bg-white/5 backdrop-blur-md
-        hover:shadow-lg hover:shadow-black/20"
+            <a
+              href={url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex items-center overflow-hidden
+          w-9 hover:w-36
+          transition-all duration-500 ease-out
+          rounded-full border border-white/15
+          bg-white/5 backdrop-blur-md
+          hover:shadow-lg hover:shadow-black/20"
             >
               {/* ICON */}
               <div
@@ -273,24 +264,23 @@ export default function Hero() {
               {/* LABEL */}
               <span
                 className="ml-2 whitespace-nowrap text-xs font-medium text-white/90
-          opacity-0 translate-x-2
-          group-hover:opacity-100 group-hover:translate-x-0
-          transition-all duration-300 delay-150"
+            opacity-0 translate-x-2
+            group-hover:opacity-100 group-hover:translate-x-0
+            transition-all duration-300 delay-150"
               >
                 {label}
               </span>
-            </div>
+            </a>
 
             {/* BETWEEN LINE (except last item) */}
-            {i !== 2 && (
-              <div className="h-4 w-px bg-white/30" />
-            )}
+            {i !== 2 && <div className="h-4 w-px bg-white/30" />}
           </div>
         ))}
 
         {/* BOTTOM LINE */}
         <div className="h-10 w-px bg-gradient-to-t from-transparent via-white/40 to-transparent" />
       </div>
+
 
 
 

@@ -140,37 +140,53 @@ export default function ContactPage() {
 
                   <ul className="space-y-6 mt-6 text-white">
                     <li className="flex items-center gap-3 text-emerald-400 hover:text-emerald-300">
-                      <FaEnvelope className="w-5 h-5" />
-                      <a href="mailto:info@example.com" className="text-[15px]">
-                        info@example.com
+                      <FaEnvelope className="w-5 h-5 shrink-0" />
+                      <a href="mailto:contact@scaleindia.in" className="text-[15px]">
+                        contact@scaleindia.in
                       </a>
                     </li>
+
                     <li className="flex items-center gap-3 text-emerald-400 hover:text-emerald-300">
-                      <FaPhone className="w-5 h-5" />
-                      <a href="tel:+158996888" className="text-[15px]">
-                        +158 996 888
+                      <FaPhone className="w-5 h-5 shrink-0" />
+                      <a href="tel:+919442592175" className="text-[15px]">
+                        +91 94425 92175
                       </a>
                     </li>
-                    <li className="flex items-center gap-3 text-emerald-400 hover:text-emerald-300">
-                      <FaMapMarkerAlt className="w-5 h-5" />
-                      <span className="text-[15px]">123 Street 256 House</span>
+
+                    <li className="flex items-start gap-3 text-emerald-400">
+                      <FaMapMarkerAlt className="w-5 h-5 mt-0.5 shrink-0" />
+                      <span className="text-[15px] leading-relaxed">
+                        #43/1A, Billekempanahalli village, Bidadi Hobli,<br />
+                        Ramanagara – 562109, Karnataka, India.
+                      </span>
                     </li>
                   </ul>
 
                   <ul className="flex flex-wrap gap-x-4 gap-y-4 mt-8">
-                    {["Facebook", "Instagram", "Twitter"].map((platform, i) => (
+                    {[
+                      { name: "Facebook", url: "https://www.facebook.com/sonamanagement" },
+                      { name: "Instagram", url: "https://www.instagram.com/sona_mba/?hl=en" },
+                      { name: "Twitter", url: "https://x.com/sonamba" },
+                    ].map((platform, i) => (
                       <li
                         key={i}
                         className="p-2 rounded-full bg-white/10 hover:bg-gold text-white hover:text-royal transition"
                       >
-                        <a href="#" aria-label={platform}>
-                          {platform === "Facebook" && <FaFacebookF className="w-4 h-4 text-white" />}
-                          {platform === "Instagram" && <FaInstagram className="w-4 h-4 text-white" />}
-                          {platform === "Twitter" && <FaTwitter className="w-4 h-4 text-white" />}
+                        <a
+                          href={platform.url}
+                          aria-label={platform.name}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          {platform.name === "Facebook" && <FaFacebookF className="w-4 h-4" />}
+                          {platform.name === "Instagram" && <FaInstagram className="w-4 h-4" />}
+                          {platform.name === "Twitter" && <FaTwitter className="w-4 h-4" />}
                         </a>
                       </li>
                     ))}
                   </ul>
+
+
 
                   <div className="absolute -bottom-24 -right-24 w-60 h-60 rounded-full bg-gold/80"></div>
                 </div>

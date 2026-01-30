@@ -88,11 +88,18 @@ export default function Footer() {
             <h3 className="font-semibold mb-4">Connect With Us</h3>
 
             <div className="flex gap-4 mb-4">
-              {[Facebook, Instagram, Linkedin, Twitter].map((Icon, i) => (
+              {[
+                { Icon: Facebook, url: "https://www.facebook.com/sonamanagement" },
+                { Icon: Instagram, url: "https://www.instagram.com/sona_mba/?hl=en" },
+                { Icon: Linkedin, url: "https://www.linkedin.com/school/sona-school-of-management/" },
+                { Icon: Twitter, url: "https://x.com/sonamba" },
+              ].map(({ Icon, url }, i) => (
                 <motion.a
                   whileHover={{ scale: 1.1 }}
                   key={i}
-                  href="#"
+                  href={url}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="p-2 rounded-full bg-white/10 hover:bg-gold text-white hover:text-royal transition"
                 >
                   <Icon size={18} />
@@ -101,33 +108,45 @@ export default function Footer() {
             </div>
 
 
-            <p className="text-sm text-white/80 space-y-1 flex flex-col">
-              <span className="flex items-center gap-2">
-                <MapPin size={16} /> Bangalore, Karnataka
+
+            <p className="text-sm text-white/80 space-y-2 flex flex-col">
+              <span className="flex items-start gap-2">
+                <MapPin size={16} className="mt-0.5 shrink-0" />
+                <span>
+                  #43/1A, Billekempanahalli village, Bidadi Hobli,
+                  Ramanagara – 562109, Karnataka, India.
+                </span>
               </span>
+
               <span className="flex items-center gap-2">
-                <Mail size={16} /> info@sonatechschool.com
+                <Mail size={16} className="shrink-0" />
+                contact@scaleindia.in
               </span>
+
               <span className="flex items-center gap-2">
-                <Phone size={16} /> +91 98765 43210
+                <Phone size={16} className="shrink-0" />
+                +91 94425 92175
               </span>
             </p>
 
+
+
           </div>
+
         </div>
 
         {/* Bottom Bar */}
         <div className="flex flex-col md:flex-row justify-between items-center py-6 text-sm text-white/70">
           <p>© {new Date().getFullYear()} Sona Tech-School. All rights reserved.</p>
 
-          <div className="flex gap-6 mt-4 md:mt-0">
-            <Link href="/privacy" className="hover:text-gold transition">
+          {/* <div className="flex gap-6 mt-4 md:mt-0">
+            <Link href="#privacy" className="hover:text-gold transition">
               Privacy Policy
             </Link>
-            <Link href="/terms" className="hover:text-gold transition">
+            <Link href="#terms" className="hover:text-gold transition">
               Terms & Conditions
             </Link>
-          </div>
+          </div> */}
         </div>
       </div>
     </footer>
