@@ -28,19 +28,11 @@ interface Props {
 
 
 const highlights = [
-    "50 Hours Instructor-Led Training",
-    "Self-Paced Learning Videos",
     "Hands-on Exercises & Projects",
     "Authorized Certification",
     "Flexible Learning Schedule",
-    "Lifetime Access & Updates",
     "24/7 Learning Support",
-    "Industry-Ready Curriculum",
 ];
-
-
-
-
 
 
 export default function CoursePage({ course }: Props) {
@@ -276,12 +268,7 @@ export default function CoursePage({ course }: Props) {
 
 
             {/* ================= TABS ================= */}
-            <ProgramTabs />
-
-
-
-            {/* ================= TESTIMONIALS ================= */}
-
+            <ProgramTabs programDetails={course.programDetails} />
 
             <SpeedSection />
 
