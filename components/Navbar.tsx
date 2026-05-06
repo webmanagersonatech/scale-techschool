@@ -104,30 +104,40 @@ export default function Navbar() {
                     />
                   </button>
 
-                  {/* Dropdown */}
-                  <AnimatePresence>
-                    {hoveredMenu === item.name && (
-                      <motion.div
-                        initial={{ x: -20, opacity: 0 }}
-                        animate={{ x: 0, opacity: 1 }}
-                        exit={{ x: -20, opacity: 0 }}
-                        transition={{ duration: 0.2 }}
-                        className="absolute top-0 left-full ml-2 w-48 bg-gray-50 dark:bg-gray-900 rounded-xl shadow-lg p-2 z-50"
-                      >
-                        {item.submenu.map((sub) => (
-                          <Link
-                            key={sub.name}
-                            href={sub.href}
-                            className={`flex items-center px-3 py-2 rounded-md font-medium transition-colors duration-200
-            ${pathname === sub.href ? "bg-royal/20 border-l-2 border-royal text-royal" : "hover:bg-royal/5 text-gray-700 dark:text-gray-200"}
+           {/* Dropdown */}
+<AnimatePresence>
+  {hoveredMenu === item.name && (
+    <motion.div
+      initial={{ y: 10, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      exit={{ y: 10, opacity: 0 }}
+      transition={{ duration: 0.2 }}
+      className="
+        absolute top-full left-0 mt-3
+        w-56 max-h-[70vh] overflow-y-auto
+        bg-white dark:bg-gray-900
+        rounded-xl shadow-xl border border-gray-100
+        z-50
+      "
+    >
+      {item.submenu.map((sub) => (
+        <Link
+          key={sub.name}
+          href={sub.href}
+          className={`block px-4 py-2 text-sm font-medium transition
+            ${
+              pathname === sub.href
+                ? "bg-royal/10 text-royal border-l-2 border-royal"
+                : "text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800"
+            }
           `}
-                          >
-                            {sub.name}
-                          </Link>
-                        ))}
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
+        >
+          {sub.name}
+        </Link>
+      ))}
+    </motion.div>
+  )}
+</AnimatePresence>
 
 
                 </div>
