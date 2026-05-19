@@ -15,9 +15,9 @@ export default function Footer() {
           <div>
             <div className="flex items-center gap-3 mb-4">
               <img
-                src="https://pgdm.scaleindia.in/images/about/logo.webp"
+                src="/images/company-logo/SCALE.webp"
                 alt="Sona Tech-School Logo"
-                className="w-10 h-10 object-contain"
+                className="w-16 object-contain"
               />
               <h2 className="text-2xl font-heading">Sona Tech-School</h2>
             </div>

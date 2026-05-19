@@ -173,16 +173,6 @@ export default function Hero() {
               </p>
             </button>
 
-            <button className="border hover:scale-95 duration-300 relative group cursor-pointer text-white overflow-hidden h-16 w-64 rounded-md bg-gray-300 p-2 flex justify-center items-center ">
-              <div className="absolute right-32 -top-4 group-hover:top-1 group-hover:right-2 z-10 w-40 h-40 rounded-full group-hover:scale-150 duration-500  bg-[#0b1c2d]/80"></div>
-              <div className="absolute right-2 -top-4 group-hover:top-1 group-hover:right-2 z-10 w-32 h-32 rounded-full group-hover:scale-150 duration-500  bg-[#0b1c2d]/60"></div>
-              <div className="absolute -right-12 top-4 group-hover:top-1 group-hover:right-2 z-10 w-24 h-24 rounded-full group-hover:scale-150 duration-500  bg-[#0b1c2d]/40"></div>
-              <div className="absolute right-20 -top-4 group-hover:top-1 group-hover:right-2 z-10 w-16 h-16 rounded-full group-hover:scale-150 duration-500  bg-[#0b1c2d]/20"></div>
-
-              <p className="z-10 flex items-center gap-2">
-                Request Demo <ArrowRight size={18} />
-              </p>
-            </button>
           </motion.div>
         </motion.div>
 
