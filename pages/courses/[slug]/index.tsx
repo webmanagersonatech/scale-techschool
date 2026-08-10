@@ -18,9 +18,19 @@ import {
     Briefcase,
     Zap,
 } from "lucide-react";
+import Link from "next/link";
 import { courses, Course } from "../../../data/courses";
 import Navbar from "../../../components/Navbar";
 import Footer from "../../../components/Footer";
+import Breadcrumb from "../../../components/Breadcrumb";
+import {
+    sanitizeNameInput,
+    sanitizePhoneInput,
+    isValidName,
+    isValidPhone,
+    isValidEmail,
+    errorMessages,
+} from "../../../lib/validation";
 
 interface Props {
     course: Course;
@@ -104,6 +114,33 @@ export default function CoursePage({ course }: Props) {
         phone: "",
         course: course?.title || "",
     });
+    const [formErrors, setFormErrors] = useState({ name: "", email: "", phone: "" });
+    const [touched, setTouched] = useState({ name: false, email: false, phone: false });
+
+    const relatedCourses = course
+        ? (() => {
+              const sameCategory = courses.filter(
+                  (c) => c.slug !== course.slug && c.category === course.category
+              );
+              const others = courses.filter(
+                  (c) => c.slug !== course.slug && c.category !== course.category
+              );
+              return [...sameCategory, ...others].slice(0, 4);
+          })()
+        : [];
+
+    const validateField = (field: "name" | "email" | "phone", value: string) => {
+        if (field === "name") {
+            return isValidName(value) ? "" : errorMessages.name;
+        }
+        if (field === "email") {
+            return isValidEmail(value) ? "" : errorMessages.email;
+        }
+        return isValidPhone(value) ? "" : errorMessages.phone;
+    };
+
+    const isJoinFormValid =
+        isValidName(formData.name) && isValidEmail(formData.email) && isValidPhone(formData.phone);
 
     if (!course) {
         return (
@@ -133,6 +170,14 @@ export default function CoursePage({ course }: Props) {
 
             {/* ================= HERO ================= */}
             <section className="bg-gradient-to-br from-slate-50 via-white to-emerald-50/30 pt-32 pb-16">
+                <div className="max-w-7xl mx-auto px-6 mb-8">
+                    <Breadcrumb
+                        items={[
+                            { label: "Courses", href: "/courses" },
+                            { label: course.title },
+                        ]}
+                    />
+                </div>
                 <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-start">
                     {/* LEFT COLUMN */}
                     <motion.div
@@ -308,6 +353,85 @@ export default function CoursePage({ course }: Props) {
                 </section>
             )}
 
+            {/* ================= EXPLORE RELATED COURSES ================= */}
+            {relatedCourses.length > 0 && (
+                <section className="py-20 bg-gray-50">
+                    <div className="max-w-7xl mx-auto px-6">
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6 }}
+                            viewport={{ once: true }}
+                            className="text-center mb-12"
+                        >
+                            <p className="uppercase tracking-widest text-emerald-600 font-semibold text-sm mb-3">
+                                Keep Exploring
+                            </p>
+                            <h2 className="text-3xl md:text-4xl font-heading font-bold text-royal">
+                                Explore Related <span className="text-emerald-600">Courses</span>
+                            </h2>
+                            <div className="w-24 h-1 bg-emerald-600 mx-auto mt-4 rounded-full"></div>
+                        </motion.div>
+
+                        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                            {relatedCourses.map((rc) => (
+                                <motion.div
+                                    key={rc.slug}
+                                    initial={{ opacity: 0, y: 15 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    transition={{ duration: 0.25 }}
+                                    viewport={{ once: true }}
+                                    className="bg-white rounded-2xl overflow-hidden border border-gray-200 hover:shadow-lg transition-shadow duration-300 flex flex-col"
+                                >
+                                    <div className="relative h-40">
+                                        {rc.recommended && (
+                                            <span className="absolute top-3 left-3 z-10 text-[11px] font-semibold tracking-wide px-3 py-1 rounded-full bg-royal text-white">
+                                                RECOMMENDED
+                                            </span>
+                                        )}
+                                        <img
+                                            src={rc.image}
+                                            alt={rc.title}
+                                            className="w-full h-full object-cover"
+                                        />
+                                    </div>
+
+                                    <div className="p-5 flex flex-col flex-1">
+                                        {rc.category && (
+                                            <span className="text-[11px] font-semibold uppercase tracking-wide text-emerald-600 mb-2">
+                                                {rc.category}
+                                            </span>
+                                        )}
+                                        <h3 className="text-base font-semibold text-gray-900 mb-2 leading-snug">
+                                            {rc.title}
+                                        </h3>
+                                        <p className="text-xs text-gray-500 line-clamp-2 mb-4">
+                                            {rc.description}
+                                        </p>
+
+                                        <Link
+                                            href={`/courses/${rc.slug}`}
+                                            className="mt-auto w-full py-2.5 rounded-lg text-sm font-semibold border border-royal text-royal transition-all duration-300 hover:bg-royal hover:text-white text-center flex items-center justify-center gap-1.5 group"
+                                        >
+                                            Know More
+                                        </Link>
+                                    </div>
+                                </motion.div>
+                            ))}
+                        </div>
+
+                        <div className="text-center mt-10">
+                            <Link
+                                href="/courses"
+                                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-royal text-white font-semibold hover:bg-royal/90 transition"
+                            >
+                                View All Courses
+                            </Link>
+                        </div>
+                    </div>
+                </section>
+            )}
+
             <SpeedSection />
 
             <Footer />
@@ -359,6 +483,17 @@ export default function CoursePage({ course }: Props) {
                                 e.preventDefault();
                                 if (isSubmitting) return;
 
+                                const nameError = validateField("name", formData.name);
+                                const emailError = validateField("email", formData.email);
+                                const phoneError = validateField("phone", formData.phone);
+                                setFormErrors({ name: nameError, email: emailError, phone: phoneError });
+                                setTouched({ name: true, email: true, phone: true });
+
+                                if (nameError || emailError || phoneError) {
+                                    toast.error("Please fix the highlighted fields.");
+                                    return;
+                                }
+
                                 try {
                                     setIsSubmitting(true);
                                     const res = await createJoiner({
@@ -370,12 +505,15 @@ export default function CoursePage({ course }: Props) {
                                     toast.success(res.message || "Successfully enrolled!");
                                     setShowJoinForm(false);
                                     setFormData({ name: "", email: "", phone: "", course: course.title });
+                                    setFormErrors({ name: "", email: "", phone: "" });
+                                    setTouched({ name: false, email: false, phone: false });
                                 } catch (err: any) {
                                     toast.error(err.message || "Failed to enroll. Please try again.");
                                 } finally {
                                     setIsSubmitting(false);
                                 }
                             }}
+                            noValidate
                             className="space-y-5"
                         >
                             <div>
@@ -384,10 +522,27 @@ export default function CoursePage({ course }: Props) {
                                     type="text"
                                     placeholder="Your full name"
                                     required
-                                    className="w-full border border-slate-300 rounded-xl px-4 py-3 text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition"
+                                    className={`w-full border rounded-xl px-4 py-3 text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:border-transparent transition ${
+                                        touched.name && formErrors.name
+                                            ? "border-red-400 focus:ring-red-400"
+                                            : "border-slate-300 focus:ring-emerald-500"
+                                    }`}
                                     value={formData.name}
-                                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                                    onChange={(e) => {
+                                        const val = sanitizeNameInput(e.target.value);
+                                        setFormData({ ...formData, name: val });
+                                        if (touched.name) {
+                                            setFormErrors({ ...formErrors, name: validateField("name", val) });
+                                        }
+                                    }}
+                                    onBlur={() => {
+                                        setTouched({ ...touched, name: true });
+                                        setFormErrors({ ...formErrors, name: validateField("name", formData.name) });
+                                    }}
                                 />
+                                {touched.name && formErrors.name && (
+                                    <p className="mt-1 text-xs text-red-500">{formErrors.name}</p>
+                                )}
                             </div>
 
                             <div>
@@ -396,22 +551,58 @@ export default function CoursePage({ course }: Props) {
                                     type="email"
                                     placeholder="your@email.com"
                                     required
-                                    className="w-full border border-slate-300 rounded-xl px-4 py-3 text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition"
+                                    className={`w-full border rounded-xl px-4 py-3 text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:border-transparent transition ${
+                                        touched.email && formErrors.email
+                                            ? "border-red-400 focus:ring-red-400"
+                                            : "border-slate-300 focus:ring-emerald-500"
+                                    }`}
                                     value={formData.email}
-                                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                                    onChange={(e) => {
+                                        const val = e.target.value;
+                                        setFormData({ ...formData, email: val });
+                                        if (touched.email) {
+                                            setFormErrors({ ...formErrors, email: validateField("email", val) });
+                                        }
+                                    }}
+                                    onBlur={() => {
+                                        setTouched({ ...touched, email: true });
+                                        setFormErrors({ ...formErrors, email: validateField("email", formData.email) });
+                                    }}
                                 />
+                                {touched.email && formErrors.email && (
+                                    <p className="mt-1 text-xs text-red-500">{formErrors.email}</p>
+                                )}
                             </div>
 
                             <div>
                                 <label className="block text-sm font-medium text-slate-700 mb-1">Phone Number</label>
                                 <input
                                     type="tel"
-                                    placeholder="+91 98765 43210"
+                                    inputMode="numeric"
+                                    placeholder="98765 43210"
+                                    maxLength={10}
                                     required
-                                    className="w-full border border-slate-300 rounded-xl px-4 py-3 text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition"
+                                    className={`w-full border rounded-xl px-4 py-3 text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:border-transparent transition ${
+                                        touched.phone && formErrors.phone
+                                            ? "border-red-400 focus:ring-red-400"
+                                            : "border-slate-300 focus:ring-emerald-500"
+                                    }`}
                                     value={formData.phone}
-                                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                                    onChange={(e) => {
+                                        const val = sanitizePhoneInput(e.target.value, formData.phone);
+                                        setFormData({ ...formData, phone: val });
+                                        if (touched.phone) {
+                                            setFormErrors({ ...formErrors, phone: validateField("phone", val) });
+                                        }
+                                    }}
+                                    onBlur={() => {
+                                        setTouched({ ...touched, phone: true });
+                                        setFormErrors({ ...formErrors, phone: validateField("phone", formData.phone) });
+                                    }}
                                 />
+                                {touched.phone && formErrors.phone && (
+                                    <p className="mt-1 text-xs text-red-500">{formErrors.phone}</p>
+                                )}
                             </div>
 
                             <button

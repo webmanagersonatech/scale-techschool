@@ -1,5 +1,6 @@
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import Breadcrumb from "../components/Breadcrumb";
 
 const founders = [
   {
@@ -74,6 +75,9 @@ export default function FacultyPage() {
       <main className="pt-32 pb-20 bg-white">
         {/* Hero */}
         <section className="max-w-7xl mx-auto px-6 text-center">
+          <div className="text-left mb-8">
+            <Breadcrumb items={[{ label: "Teams" }]} />
+          </div>
           <p className="uppercase tracking-widest text-emerald-600 font-semibold text-sm mb-4">
             Our Leadership Team
           </p>

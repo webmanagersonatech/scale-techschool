@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import Breadcrumb from "../components/Breadcrumb";
 import Head from "next/head";
 import { createContact } from "../lib/api/contact";
 import { toast } from "sonner";
@@ -15,6 +16,15 @@ import {
   FaUser,
   FaComment,
 } from "react-icons/fa";
+import {
+  sanitizeNameInput,
+  sanitizePhoneInput,
+  isValidName,
+  isValidPhone,
+  isValidEmail,
+  isValidMessage,
+  errorMessages,
+} from "../lib/validation";
 
 export default function ContactPage() {
   const [loading, setLoading] = useState(false);
@@ -27,13 +37,79 @@ export default function ContactPage() {
     subject: "general",
   });
 
+  const [errors, setErrors] = useState({
+    firstName: "",
+    lastName: "",
+    phone: "",
+    email: "",
+    message: "",
+  });
+  const [touched, setTouched] = useState({
+    firstName: false,
+    lastName: false,
+    phone: false,
+    email: false,
+    message: false,
+  });
+
+  const validateField = (name: string, value: string) => {
+    switch (name) {
+      case "firstName":
+        return isValidName(value) ? "" : errorMessages.firstName;
+      case "lastName":
+        return isValidName(value) ? "" : errorMessages.lastName;
+      case "phone":
+        return isValidPhone(value) ? "" : errorMessages.phone;
+      case "email":
+        return isValidEmail(value) ? "" : errorMessages.email;
+      case "message":
+        return isValidMessage(value) ? "" : errorMessages.message;
+      default:
+        return "";
+    }
+  };
+
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+    let sanitized = value;
+
+    if (name === "firstName" || name === "lastName") {
+      sanitized = sanitizeNameInput(value);
+    } else if (name === "phone") {
+      sanitized = sanitizePhoneInput(value, formData.phone);
+    }
+
+    setFormData({ ...formData, [name]: sanitized });
+
+    if (touched[name as keyof typeof touched]) {
+      setErrors({ ...errors, [name]: validateField(name, sanitized) });
+    }
+  };
+
+  const handleBlur = (e) => {
+    const { name, value } = e.target;
+    setTouched({ ...touched, [name]: true });
+    setErrors({ ...errors, [name]: validateField(name, value) });
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    const newErrors = {
+      firstName: validateField("firstName", formData.firstName),
+      lastName: validateField("lastName", formData.lastName),
+      phone: validateField("phone", formData.phone),
+      email: validateField("email", formData.email),
+      message: validateField("message", formData.message),
+    };
+    setErrors(newErrors);
+    setTouched({ firstName: true, lastName: true, phone: true, email: true, message: true });
+
+    if (Object.values(newErrors).some(Boolean)) {
+      toast.error("Please fix the highlighted fields before submitting.");
+      return;
+    }
+
     setLoading(true);
     try {
       const response = await createContact(formData);
@@ -47,6 +123,8 @@ export default function ContactPage() {
           subject: "general",
           message: "",
         });
+        setTouched({ firstName: false, lastName: false, phone: false, email: false, message: false });
+        setErrors({ firstName: "", lastName: "", phone: "", email: "", message: "" });
       } else {
         toast.error(response.message || "Failed to send message");
       }
@@ -56,6 +134,13 @@ export default function ContactPage() {
       setLoading(false);
     }
   };
+
+  const inputClass = (field: keyof typeof errors) =>
+    `pl-8 py-3 w-full border-b outline-none text-sm transition-colors ${
+      touched[field] && errors[field]
+        ? "border-red-400 focus:border-red-500"
+        : "border-gray-300 focus:border-emerald-500"
+    }`;
 
   return (
     <>
@@ -118,6 +203,10 @@ export default function ContactPage() {
         <div className="-mt-16 mb-12 px-4">
           <div className="mx-auto max-w-7xl  relative bg-white rounded-sm">
             <div className="max-w-7xl max-lg:max-w-3xl mx-auto p-4">
+              {/* Breadcrumb */}
+              <div className="pt-6 pb-2">
+                <Breadcrumb items={[{ label: "Contact" }]} />
+              </div>
               {/* Heading */}
               <div className="text-center ">
                 <h2 className="text-royal text-3xl font-heading">Contact Us</h2>
@@ -194,76 +283,112 @@ export default function ContactPage() {
 
                 {/* Right Contact Form */}
                 <div className="lg:col-span-3 px-4 sm:px-8 py-4">
-                  <form onSubmit={handleSubmit}>
+                  <form onSubmit={handleSubmit} noValidate>
                     <div className="grid md:grid-cols-2 gap-6">
                       {/* First Name */}
-                      <div className="relative flex items-center">
-                        <FaUser className="absolute left-2 text-gray-400" />
-                        <input
-                          type="text"
-                          name="firstName"
-                          value={formData.firstName}
-                          onChange={handleChange}
-                          placeholder="First Name"
-                          className="pl-8 py-3 w-full border-b border-gray-300 focus:border-emerald-500 outline-none text-sm"
-                          required
-                        />
+                      <div>
+                        <div className="relative flex items-center">
+                          <FaUser className="absolute left-2 text-gray-400" />
+                          <input
+                            type="text"
+                            name="firstName"
+                            value={formData.firstName}
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            placeholder="First Name"
+                            className={inputClass("firstName")}
+                            required
+                          />
+                        </div>
+                        {touched.firstName && errors.firstName && (
+                          <p className="mt-1 text-xs text-red-500">{errors.firstName}</p>
+                        )}
                       </div>
 
                       {/* Last Name */}
-                      <div className="relative flex items-center">
-                        <FaUser className="absolute left-2 text-gray-400" />
-                        <input
-                          type="text"
-                          name="lastName"
-                          value={formData.lastName}
-                          onChange={handleChange}
-                          placeholder="Last Name"
-                          className="pl-8 py-3 w-full border-b border-gray-300 focus:border-emerald-500 outline-none text-sm"
-                          required
-                        />
+                      <div>
+                        <div className="relative flex items-center">
+                          <FaUser className="absolute left-2 text-gray-400" />
+                          <input
+                            type="text"
+                            name="lastName"
+                            value={formData.lastName}
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            placeholder="Last Name"
+                            className={inputClass("lastName")}
+                            required
+                          />
+                        </div>
+                        {touched.lastName && errors.lastName && (
+                          <p className="mt-1 text-xs text-red-500">{errors.lastName}</p>
+                        )}
                       </div>
 
                       {/* Phone */}
-                      <div className="relative flex items-center">
-                        <FaPhone className="absolute left-2 text-gray-400" />
-                        <input
-                          type="tel"
-                          name="phone"
-                          value={formData.phone}
-                          onChange={handleChange}
-                          placeholder="Phone No."
-                          className="pl-8 py-3 w-full border-b border-gray-300 focus:border-emerald-500 outline-none text-sm"
-                          required
-                        />
+                      <div>
+                        <div className="relative flex items-center">
+                          <FaPhone className="absolute left-2 text-gray-400" />
+                          <input
+                            type="tel"
+                            inputMode="numeric"
+                            name="phone"
+                            maxLength={10}
+                            value={formData.phone}
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            placeholder="Phone No. (10 digits)"
+                            className={inputClass("phone")}
+                            required
+                          />
+                        </div>
+                        {touched.phone && errors.phone && (
+                          <p className="mt-1 text-xs text-red-500">{errors.phone}</p>
+                        )}
                       </div>
 
                       {/* Email */}
-                      <div className="relative flex items-center">
-                        <FaEnvelope className="absolute left-2 text-gray-400" />
-                        <input
-                          type="email"
-                          name="email"
-                          value={formData.email}
-                          onChange={handleChange}
-                          placeholder="Email"
-                          className="pl-8 py-3 w-full border-b border-gray-300 focus:border-emerald-500 outline-none text-sm"
-                          required
-                        />
+                      <div>
+                        <div className="relative flex items-center">
+                          <FaEnvelope className="absolute left-2 text-gray-400" />
+                          <input
+                            type="email"
+                            name="email"
+                            value={formData.email}
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            placeholder="Email"
+                            className={inputClass("email")}
+                            required
+                          />
+                        </div>
+                        {touched.email && errors.email && (
+                          <p className="mt-1 text-xs text-red-500">{errors.email}</p>
+                        )}
                       </div>
 
                       {/* Message */}
                       <div className="relative flex items-start col-span-full">
                         <FaComment className="absolute left-2 top-3 text-gray-400" />
-                        <textarea
-                          name="message"
-                          value={formData.message}
-                          onChange={handleChange}
-                          placeholder="Write Message"
-                          rows={4}
-                          className="pl-8 pt-3 w-full border-b border-gray-300 focus:border-emerald-500 outline-none text-sm"
-                          required
-                        ></textarea>
+                        <div className="w-full">
+                          <textarea
+                            name="message"
+                            value={formData.message}
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            placeholder="Write Message"
+                            rows={4}
+                            className={`pl-8 pt-3 w-full border-b outline-none text-sm transition-colors ${
+                              touched.message && errors.message
+                                ? "border-red-400 focus:border-red-500"
+                                : "border-gray-300 focus:border-emerald-500"
+                            }`}
+                            required
+                          ></textarea>
+                          {touched.message && errors.message && (
+                            <p className="mt-1 text-xs text-red-500">{errors.message}</p>
+                          )}
+                        </div>
                       </div>
 
                       {/* Subject Radio Buttons */}

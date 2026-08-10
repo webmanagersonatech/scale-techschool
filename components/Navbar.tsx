@@ -63,7 +63,7 @@ export default function Navbar() {
       <motion.nav
         initial={{ y: -80 }}
         animate={{ y: 0 }}
-        className="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-md shadow-md font-heading"
+        className="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-md shadow-md font-poppins"
       >
         <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
           <div className="flex items-center space-x-3 cursor-pointer">
@@ -183,7 +183,7 @@ export default function Navbar() {
             animate="visible"
             exit="exit"
             transition={{ type: "spring", stiffness: 260, damping: 25 }}
-            className="fixed top-0 right-0 h-screen w-4/5 bg-white z-50 flex flex-col"
+            className="fixed top-0 right-0 h-screen w-4/5 bg-white z-50 flex flex-col font-poppins"
           >
             {/* Sticky header with close button */}
             <div className="sticky top-0 bg-white z-10 p-6 pb-0 flex justify-between items-center border-b border-gray-100">

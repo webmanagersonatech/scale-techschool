@@ -1,5 +1,6 @@
 import Navbar from "../components/Navbar"
 import Footer from "../components/Footer"
+import Breadcrumb from "../components/Breadcrumb"
 import Link from "next/link"
 
 const pathwaySteps = [
@@ -30,6 +31,9 @@ export default function AdmissionsPage() {
       <main className="pt-32 pb-20 bg-white">
         {/* Hero */}
         <section className="max-w-7xl mx-auto px-6 text-center">
+          <div className="text-left mb-8">
+            <Breadcrumb items={[{ label: "Admissions" }]} />
+          </div>
           <p className="uppercase tracking-widest text-emerald-600 font-semibold text-sm mb-4">
             Enroll Now · 2026–27
           </p>

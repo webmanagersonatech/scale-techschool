@@ -1,5 +1,6 @@
 import Navbar from "../components/Navbar"
 import Footer from "../components/Footer"
+import Breadcrumb from "../components/Breadcrumb"
 
 const stats = [
   { value: "105", label: "Years of Group Legacy" },
@@ -34,6 +35,9 @@ export default function AboutPage() {
       <main className="pt-32 pb-20 bg-white">
         {/* Hero */}
         <section className="max-w-7xl mx-auto px-6 text-center">
+          <div className="text-left mb-8">
+            <Breadcrumb items={[{ label: "About" }]} />
+          </div>
           <p className="uppercase tracking-widest text-emerald-600 font-semibold text-sm mb-4">
             About SCALE
           </p>

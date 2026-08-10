@@ -21,7 +21,7 @@ const categories = Array.from(
 
 export default function Footer() {
   return (
-    <footer className="bg-royal text-white pt-16 font-heading">
+    <footer className="bg-royal text-white pt-16 font-poppins">
       <div className="max-w-7xl mx-auto px-6">
 
         {/* Top Section */}
@@ -35,7 +35,7 @@ export default function Footer() {
                 alt="Sona Tech-School Logo"
                 className="w-16 object-contain"
               />
-              <h2 className="text-2xl font-heading">Sona Tech-School</h2>
+              <h2 className="text-2xl font-poppins font-semibold">Sona Tech-School</h2>
             </div>
 
             <p className="text-white/80 text-sm leading-relaxed mb-4">
