@@ -85,21 +85,7 @@ export default function TechnologyProgramsCarousel() {
                     {item.title}
                   </h3>
 
-                  {/* Stats */}
-                  <div className="grid grid-cols-3 gap-4 text-center mb-6">
-                    <div>
-                      <p className="text-sm font-semibold text-gray-900">{item.months}</p>
-                      <p className="text-xs text-gray-500">Months</p>
-                    </div>
-                    <div>
-                      <p className="text-sm font-semibold text-gray-900">{item.hours}</p>
-                      <p className="text-xs text-gray-500">Hours</p>
-                    </div>
-                    <div>
-                      <p className="text-sm font-semibold text-gray-900">{item.projects}</p>
-                      <p className="text-xs text-gray-500">Projects</p>
-                    </div>
-                  </div>
+            
 
                   {/* Divider */}
                   <div className="border-t border-gray-200 mb-4" />

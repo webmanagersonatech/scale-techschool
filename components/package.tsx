@@ -9,10 +9,10 @@ const placements = [
     { name: "TCS", lpa: "7" },
     { name: "Berkshire", lpa: "6.8" },
     { name: "Redbus", lpa: "6" },
-    { name: "Accolite", lpa: "6" },
-    { name: "Aptean", lpa: "5" },
-    { name: "HealthAsyst", lpa: "5" },
-    { name: "BI Worldwide", lpa: "4.5" },
+    // { name: "Accolite", lpa: "6" },
+    // { name: "Aptean", lpa: "5" },
+    // { name: "HealthAsyst", lpa: "5" },
+    // { name: "BI Worldwide", lpa: "4.5" },
 ]
 const features = [
     { text: "Expert trainers from top universities", icon: <FaUniversity className="text-emerald-500 w-5 h-5" /> },

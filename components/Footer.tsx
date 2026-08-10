@@ -2,6 +2,22 @@
 import Link from "next/link"
 import { motion } from "framer-motion"
 import { Facebook, Instagram, Linkedin, Twitter, MapPin, Mail, Phone } from "lucide-react"
+import { courses } from "../data/courses"
+
+// Mirrors the main navbar so Quick Links always stay in sync with it
+const quickLinks = [
+  { name: "Home", href: "/" },
+  { name: "About", href: "/about" },
+  { name: "All Courses", href: "/courses" },
+  { name: "Admissions", href: "/admissions" },
+  { name: "Teams", href: "/faculty" },
+  { name: "Contact", href: "/contact" },
+]
+
+// Distinct course categories, linked to the filterable /courses page
+const categories = Array.from(
+  new Set(courses.map((c) => c.category).filter(Boolean))
+) as string[]
 
 export default function Footer() {
   return (
@@ -22,72 +38,11 @@ export default function Footer() {
               <h2 className="text-2xl font-heading">Sona Tech-School</h2>
             </div>
 
-            <p className="text-white/80 text-sm leading-relaxed">
+            <p className="text-white/80 text-sm leading-relaxed mb-4">
               Empowering future leaders with world-class education,
               innovation, and excellence.
             </p>
-          </div>
-
-
-          {/* Quick Links */}
-          <div>
-            <h3 className="font-semibold mb-4">Quick Links</h3>
-            <ul className="space-y-2 text-sm">
-              <li>
-                <Link
-                  href="#courses"
-                  className="text-white/80 hover:text-gold transition"
-                >
-                  Courses
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/contact"
-                  className="text-white/80 hover:text-gold transition"
-                >
-                  Contact
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-
-          <div>
-            <h3 className="font-semibold mb-4">MBA Courses</h3>
-            <ul className="space-y-2 text-sm">
-              <li>
-                <Link
-                  href="https://pgdm.scaleindia.in/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-white/80 hover:text-gold transition"
-                >
-                  PGDM – Bangalore Campus
-                </Link>
-              </li>
-
-              <li>
-                <Link
-                  href="https://www.sonabusinessschool.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-white/80 hover:text-gold transition"
-                >
-                  MBA – Salem Campus
-                </Link>
-              </li>
-
-
-            </ul>
-          </div>
-
-
-          {/* Social / Contact */}
-          <div>
-            <h3 className="font-semibold mb-4">Connect With Us</h3>
-
-            <div className="flex gap-4 mb-4">
+    <div className="flex gap-4 mb-4">
               {[
                 { Icon: Facebook, url: "https://www.facebook.com/sonamanagement" },
                 { Icon: Instagram, url: "https://www.instagram.com/sona_mba/?hl=en" },
@@ -106,6 +61,58 @@ export default function Footer() {
                 </motion.a>
               ))}
             </div>
+           
+          </div>
+
+
+          {/* Quick Links — kept in sync with the navbar */}
+          <div>
+            <h3 className="font-semibold mb-4">Quick Links</h3>
+            <ul className="space-y-2 text-sm">
+              {quickLinks.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-white/80 hover:text-gold transition"
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Course Categories — link straight into the filtered courses page */}
+          <div>
+            <h3 className="font-semibold mb-4">Course Categories</h3>
+            <ul className="space-y-2 text-sm">
+              {categories.map((cat) => (
+                <li key={cat}>
+                  <Link
+                    href={`/courses?category=${encodeURIComponent(cat)}`}
+                    className="text-white/80 hover:text-gold transition"
+                  >
+                    {cat}
+                  </Link>
+                </li>
+              ))}
+              <li>
+                <Link
+                  href="/courses"
+                  className="text-gold font-semibold hover:underline transition"
+                >
+                  View All Courses →
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+
+          {/* Social / Contact */}
+          <div>
+            <h3 className="font-semibold mb-4">Connect With Us</h3>
+
+        
 
 
 

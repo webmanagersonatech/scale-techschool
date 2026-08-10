@@ -14,22 +14,17 @@ interface CoursePageProps {
 
 const navItems = [
   { name: "Home", href: "/" },
-  // { name: "About", href: "/about" },
+  { name: "About", href: "/about" },
   {
     name: "Courses",
+    href: "/courses",
     submenu: courses.map((course) => ({
       name: course.title,
       href: `/courses/${course.slug}`,
     })),
   },
-  // {
-  //   name: "Admissions",
-  //   submenu: [
-  //     { name: "Apply Now", href: "/admissions/apply" },
-  //     { name: "Eligibility", href: "/admissions/eligibility" },
-  //   ],
-  // },
-  // { name: "Faculty", href: "/faculty" },
+  { name: "Admissions", href: "/admissions" },
+  { name: "Teams", href: "/faculty" },
   { name: "Contact", href: "/contact" },
 ];
 
@@ -91,9 +86,10 @@ export default function Navbar() {
                   onMouseEnter={() => setHoveredMenu(item.name)}
                   onMouseLeave={() => setHoveredMenu(null)}
                 >
-                  <button
+                  <Link
+                    href={item.href}
                     className={`flex items-center gap-1 transition-all duration-300 font-semibold
-                      ${pathname.startsWith(item.href) ? "text-gold" : "text-gray-800"}
+                      ${pathname === item.href || pathname.startsWith(item.href + "/") ? "text-gold" : "text-gray-800"}
                     `}
                   >
                     {item.name}
@@ -102,7 +98,7 @@ export default function Navbar() {
                       className={`transition-transform duration-300 ${hoveredMenu === item.name ? "rotate-180" : ""
                         }`}
                     />
-                  </button>
+                  </Link>
 
                   {/* Dropdown */}
                   <AnimatePresence>
@@ -114,12 +110,18 @@ export default function Navbar() {
                         transition={{ duration: 0.2 }}
                         className="
         absolute top-full left-0 mt-3
-        w-56 max-h-[70vh] overflow-y-auto
+        w-64 max-h-[70vh] overflow-y-auto
         bg-white dark:bg-gray-900
         rounded-xl shadow-xl border border-gray-100
         z-50
       "
                       >
+                        <Link
+                          href="/courses"
+                          className="block px-4 py-2.5 text-sm font-bold text-royal bg-gray-50 hover:bg-gray-100 border-b border-gray-100"
+                        >
+                          View All Courses
+                        </Link>
                         {item.submenu.map((sub) => (
                           <Link
                             key={sub.name}
@@ -201,7 +203,7 @@ export default function Navbar() {
                           setActiveMobileMenu(activeMobileMenu === item.name ? null : item.name)
                         }
                         className={`flex justify-between items-center w-full font-semibold transition-colors duration-200
-                          ${pathname.startsWith(item.href) ? "text-royal" : "text-gray-800"}
+                          ${pathname === item.href || pathname.startsWith(item.href + "/") ? "text-royal" : "text-gray-800"}
                         `}
                       >
                         {item.name}
@@ -220,6 +222,15 @@ export default function Navbar() {
                             exit="exit"
                             className="ml-4 mt-2 space-y-2 overflow-hidden"
                           >
+                            <li>
+                              <Link
+                                href="/courses"
+                                onClick={() => setOpen(false)}
+                                className="block py-1 font-semibold text-royal"
+                              >
+                                View All Courses
+                              </Link>
+                            </li>
                             {item.submenu.map((sub) => (
                               <li key={sub.name}>
                                 <Link

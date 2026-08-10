@@ -26,11 +26,11 @@ export default function AdvisorBot() {
 
     return (
         <>
-            {/* Floating Button with Text */}
+            {/* Floating Button with Text - Now opens phone dialer directly */}
             <div className="fixed bottom-4 right-4 md:bottom-6 md:right-6 flex items-center space-x-2 z-50">
-                {/* Button */}
-                <button
-                    onClick={() => setOpen(true)}
+                {/* Button - Now calls the number directly */}
+                <a
+                    href="tel:+919442592175"
                     className="group w-12 hover:w-44 h-12 hover:bg-emerald-700 relative bg-emerald-500 border border-emerald-700 rounded text-neutral-50 duration-700 before:duration-700 font-bold flex justify-start gap-2 items-center p-2 pr-6 before:absolute before:-z-10 before:left-8 before:hover:left-40 before:w-6 before:h-6 before:bg-emerald-500 before:hover:bg-emerald-700 before:rotate-45"
                 >
                     <svg
@@ -43,18 +43,13 @@ export default function AdvisorBot() {
                     <span
                         className="origin-left inline-flex duration-100 group-hover:duration-300 group-hover:delay-500 opacity-0 group-hover:opacity-100 border-l-2 px-1 transform scale-x-0 group-hover:scale-x-100 transition-all"
                     >
-                        Talk to Advisor
+                        Call Advisor
                     </span>
-                </button>
-
-
-
+                </a>
             </div>
 
-
-
-
-            {/* Chat Window */}
+            {/* Keep this commented out or remove if you don't need the form popup anymore */}
+            {/* Chat Window - Commented out or can be removed
             <AnimatePresence>
                 {open && (
                     <motion.div
@@ -71,7 +66,7 @@ export default function AdvisorBot() {
             "
                     >
                         {/* Header */}
-                        <div className="bg-royal text-white p-4 flex justify-between items-center">
+            {/* <div className="bg-royal text-white p-4 flex justify-between items-center">
                             <div className="flex items-center gap-2">
                                 <FaUserTie className="text-emerald-400" />
                                 <p className="font-semibold ">Talk to an Advisor</p>
@@ -83,13 +78,13 @@ export default function AdvisorBot() {
                         </div>
 
                         {/* Body */}
-                        <div className="p-5 space-y-4 text-sm">
+            {/* <div className="p-5 space-y-4 text-sm">
 
                             <p className="text-gray-600 dark:text-gray-300">
                                 Choose your preferred date & time for the call.
                             </p>
                             {/* Course Select */}
-                            <select
+            {/* <select
                                 className="w-full border-b border-gray-400 bg-transparent p-2 focus:outline-none focus:border-emerald-500 dark:border-gray-500 dark:focus:border-emerald-400"
                                 onChange={(e) => setForm({ ...form, course: e.target.value })}
                                 value={form.course} // makes it controlled
@@ -100,34 +95,32 @@ export default function AdvisorBot() {
                                         {course.title}
                                     </option>
                                 ))}
-                            </select>
+                            </select> */}
 
-
-                            {/* Name Input */}
-                            <input
+            {/* Name Input */}
+            {/* <input
                                 placeholder="Your Name"
                                 className="w-full border-b border-gray-400 bg-transparent p-2 focus:outline-none focus:border-emerald-500 dark:border-gray-500 dark:focus:border-emerald-400"
                                 onChange={(e) => setForm({ ...form, name: e.target.value })}
-                            />
+                            /> */}
 
-                            {/* Phone Input */}
-                            <input
+            {/* Phone Input */}
+            {/* <input
                                 placeholder="Phone Number"
                                 type="tel"
                                 className="w-full border-b border-gray-400 bg-transparent p-2 focus:outline-none focus:border-emerald-500 dark:border-gray-500 dark:focus:border-emerald-400"
                                 onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                            />
+                            /> */}
 
-                            {/* DateTime Input */}
-                            <input
+            {/* DateTime Input */}
+            {/* <input
                                 type="datetime-local"
                                 min={new Date().toISOString().slice(0, 16)}
                                 className="w-full border-b border-gray-400 bg-transparent p-2 focus:outline-none focus:border-emerald-500 dark:border-gray-500 dark:focus:border-emerald-400"
                                 onChange={(e) => setForm({ ...form, datetime: e.target.value })}
-                            />
+                            /> */}
 
-
-                            <button
+            {/* <button
                                 onClick={handleSubmit}
                                 className="w-full bg-emerald-600 text-white py-2 
                 rounded-lg font-semibold hover:bg-emerald-700 transition"
@@ -137,7 +130,7 @@ export default function AdvisorBot() {
                         </div>
                     </motion.div>
                 )}
-            </AnimatePresence>
+            </AnimatePresence> */}
         </>
     );
 }

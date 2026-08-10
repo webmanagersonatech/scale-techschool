@@ -108,7 +108,7 @@ export default function ContactPage() {
         {/* Banner */}
         <div className="bg-gradient-to-r from-blue-700 to-blue-300 w-full h-60 relative">
           <img
-            src="https://img.freepik.com/premium-photo/man-is-working-laptop-with-words-learning-time_1318304-14613.jpg?ga=GA1.1.747278850.1765974059&semt=ais_hybrid&w=740&q=80"
+            src="/images/contact.png"
             alt="Banner Image"
             className="w-full h-full object-cover"
           />

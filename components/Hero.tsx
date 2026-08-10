@@ -1,5 +1,6 @@
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 import { useState, useEffect } from "react";
 import {
   ArrowRight, Brain, Cpu, Target, Instagram,
@@ -122,9 +123,9 @@ export default function Hero() {
             }}
             className="text-3xl md:text-4xl xl:text-5xl font-oswald leading-[1.1] tracking-wide mb-6"
           >
-            Industry Ready
+            Tomorrow's Technology,
             <span className="block mt-1 text-gold tracking-wider">
-              AI Specialization Programs
+              Today.
             </span>
           </motion.h1>
 
@@ -136,8 +137,9 @@ export default function Hero() {
             }}
             className="text-gray-200 max-w-xl font-heading md:text-lg mb-10"
           >
-            Future-focused programs designed with industry experts, integrating AI skill mapping,
-            real-world projects, and outcome-driven learning.
+            Industry-integrated learning across three depths of immersion — built with global
+            industry leaders to prepare day-one-ready professionals for Global Capability Centres
+            and the modern enterprise. Backed by a 105-year legacy.
           </motion.p>
 
           {/* CTA BUTTONS */}
@@ -148,7 +150,10 @@ export default function Hero() {
             }}
             className="flex flex-col sm:flex-row gap-4"
           >
-            <button className="relative group cursor-pointer text-royal overflow-hidden h-16 w-64 sm:w-64 rounded-md bg-gold flex justify-center items-center">
+            <Link
+              href="/courses"
+              className="relative group cursor-pointer text-royal overflow-hidden h-16 w-64 sm:w-64 rounded-md bg-gold flex justify-center items-center"
+            >
               <div className="absolute top-3 right-20 group-hover:top-12 group-hover:-right-12 z-10 w-40 h-40 rounded-full group-hover:scale-150 group-hover:opacity-50 duration-500 bg-[#b8942e]"></div>
               <div className="absolute top-3 right-20 group-hover:top-12 group-hover:-right-12 z-10 w-32 h-32 rounded-full group-hover:scale-150 group-hover:opacity-50 duration-500 bg-[#d4af37]"></div>
               <div className="absolute top-3 right-20 group-hover:top-12 group-hover:-right-12 z-10 w-24 h-24 rounded-full group-hover:scale-150 group-hover:opacity-50 duration-500 bg-[#ffe27d]"></div>
@@ -171,7 +176,7 @@ export default function Hero() {
                   ➔
                 </motion.span>
               </p>
-            </button>
+            </Link>
 
           </motion.div>
         </motion.div>
