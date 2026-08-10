@@ -1,5 +1,3 @@
-
-
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { useState, useEffect } from "react";
@@ -10,7 +8,6 @@ import { courses, Course } from "../data/courses";
 interface CoursePageProps {
   course: Course;
 }
-
 
 const navItems = [
   { name: "Home", href: "/" },
@@ -37,6 +34,9 @@ export default function Navbar() {
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "auto";
+    return () => {
+      document.body.style.overflow = "auto";
+    };
   }, [open]);
 
   // Animation variants
@@ -68,13 +68,12 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
           <div className="flex items-center space-x-3 cursor-pointer">
             <img
-              src="/images/company-logo/SCALE-png.png" // your logo file
+              src="/images/company-logo/SCALE-png.png"
               alt="Sona Tech-School"
               className="w-20 h-12 object-contain"
             />
             <span className="text-2xl font-bold text-royal">Sona Tech-School</span>
           </div>
-
 
           {/* DESKTOP MENU */}
           <div className="hidden md:flex gap-8 font-medium items-center">
@@ -104,21 +103,16 @@ export default function Navbar() {
                   <AnimatePresence>
                     {hoveredMenu === item.name && (
                       <motion.div
-                        initial={{ y: 10, opacity: 0 }}
-                        animate={{ y: 0, opacity: 1 }}
-                        exit={{ y: 10, opacity: 0 }}
+                        variants={dropdownVariants}
+                        initial="hidden"
+                        animate="visible"
+                        exit="hidden"
                         transition={{ duration: 0.2 }}
-                        className="
-        absolute top-full left-0 mt-3
-        w-64 max-h-[70vh] overflow-y-auto
-        bg-white dark:bg-gray-900
-        rounded-xl shadow-xl border border-gray-100
-        z-50
-      "
+                        className="absolute top-full left-0 mt-3 w-64 max-h-[70vh] overflow-y-auto bg-white dark:bg-gray-900 rounded-xl shadow-xl border border-gray-100 z-50"
                       >
                         <Link
                           href="/courses"
-                          className="block px-4 py-2.5 text-sm font-bold text-royal bg-gray-50 hover:bg-gray-100 border-b border-gray-100"
+                          className="block px-4 py-2.5 text-sm font-bold text-royal bg-gray-50 hover:bg-gray-100 border-b border-gray-100 sticky top-0 z-10"
                         >
                           View All Courses
                         </Link>
@@ -127,11 +121,11 @@ export default function Navbar() {
                             key={sub.name}
                             href={sub.href}
                             className={`block px-4 py-2 text-sm font-medium transition
-            ${pathname === sub.href
+                              ${pathname === sub.href
                                 ? "bg-royal/10 text-royal border-l-2 border-royal"
                                 : "text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800"
                               }
-          `}
+                            `}
                           >
                             {sub.name}
                           </Link>
@@ -139,8 +133,6 @@ export default function Navbar() {
                       </motion.div>
                     )}
                   </AnimatePresence>
-
-
                 </div>
               ) : (
                 <Link
@@ -156,8 +148,12 @@ export default function Navbar() {
             )}
           </div>
 
-          {/* HAMBURGER */}
-          <button onClick={() => setOpen(true)} className="md:hidden z-50 space-y-1.5">
+          {/* HAMBURGER BUTTON */}
+          <button 
+            onClick={() => setOpen(true)} 
+            className="md:hidden z-50 space-y-1.5"
+            aria-label="Open menu"
+          >
             <span className="block w-6 h-0.5 bg-black rounded-full" />
             <span className="block w-6 h-0.5 bg-black rounded-full" />
             <span className="block w-6 h-0.5 bg-black rounded-full" />
@@ -178,7 +174,7 @@ export default function Navbar() {
         )}
       </AnimatePresence>
 
-      {/* MOBILE MENU */}
+      {/* MOBILE MENU - FIXED WITH SCROLLING */}
       <AnimatePresence>
         {open && (
           <motion.aside
@@ -187,81 +183,97 @@ export default function Navbar() {
             animate="visible"
             exit="exit"
             transition={{ type: "spring", stiffness: 260, damping: 25 }}
-            className="fixed top-0 right-0 h-screen w-4/5 bg-white z-50 p-6 flex flex-col"
+            className="fixed top-0 right-0 h-screen w-4/5 bg-white z-50 flex flex-col"
           >
-            <button onClick={() => setOpen(false)} className="absolute top-5 right-5">
-              <X size={26} />
-            </button>
+            {/* Sticky header with close button */}
+            <div className="sticky top-0 bg-white z-10 p-6 pb-0 flex justify-between items-center border-b border-gray-100">
+              <h2 className="text-xl font-bold text-royal">Menu</h2>
+              <button 
+                onClick={() => setOpen(false)} 
+                className="p-2 hover:bg-gray-100 rounded-full transition-colors"
+                aria-label="Close menu"
+              >
+                <X size={26} />
+              </button>
+            </div>
 
-            <ul className="mt-16 space-y-4 text-lg font-medium">
-              {navItems.map((item) => (
-                <li key={item.name}>
-                  {item.submenu ? (
-                    <>
-                      <button
-                        onClick={() =>
-                          setActiveMobileMenu(activeMobileMenu === item.name ? null : item.name)
-                        }
-                        className={`flex justify-between items-center w-full font-semibold transition-colors duration-200
-                          ${pathname === item.href || pathname.startsWith(item.href + "/") ? "text-royal" : "text-gray-800"}
+            {/* Scrollable content */}
+            <div className="flex-1 overflow-y-auto px-6 py-4">
+              <ul className="space-y-4 text-lg font-medium pb-8">
+                {navItems.map((item) => (
+                  <li key={item.name} className="border-b border-gray-100 pb-3">
+                    {item.submenu ? (
+                      <>
+                        <button
+                          onClick={() =>
+                            setActiveMobileMenu(activeMobileMenu === item.name ? null : item.name)
+                          }
+                          className={`flex justify-between items-center w-full font-semibold transition-colors duration-200 py-2
+                            ${pathname === item.href || pathname.startsWith(item.href + "/") ? "text-royal" : "text-gray-800"}
+                          `}
+                        >
+                          <span>{item.name}</span>
+                          <ChevronDown
+                            size={20}
+                            className={`transition-transform duration-300 ${activeMobileMenu === item.name ? "rotate-180" : ""
+                              }`}
+                          />
+                        </button>
+
+                        <AnimatePresence>
+                          {activeMobileMenu === item.name && (
+                            <motion.ul
+                              variants={submenuVariants}
+                              initial="hidden"
+                              animate="visible"
+                              exit="exit"
+                              transition={{ duration: 0.3 }}
+                              className="ml-4 mt-2 space-y-2 overflow-y-auto max-h-60"
+                            >
+                              <li>
+                                <Link
+                                  href="/courses"
+                                  onClick={() => setOpen(false)}
+                                  className="block py-2 px-3 font-semibold text-royal bg-royal/5 rounded-lg hover:bg-royal/10 transition-colors"
+                                >
+                                  View All Courses
+                                </Link>
+                              </li>
+                              {item.submenu.map((sub) => (
+                                <li key={sub.name}>
+                                  <Link
+                                    href={sub.href}
+                                    onClick={() => setOpen(false)}
+                                    className={`block py-2 px-3 rounded-lg transition-colors duration-200
+                                      ${pathname === sub.href 
+                                        ? "text-royal font-semibold bg-royal/5" 
+                                        : "text-gray-600 hover:text-royal hover:bg-gray-50"
+                                      }
+                                    `}
+                                  >
+                                    {sub.name}
+                                  </Link>
+                                </li>
+                              ))}
+                            </motion.ul>
+                          )}
+                        </AnimatePresence>
+                      </>
+                    ) : (
+                      <Link
+                        href={item.href}
+                        onClick={() => setOpen(false)}
+                        className={`block py-2 font-semibold transition-colors duration-200
+                          ${pathname === item.href ? "text-royal" : "text-gray-800 hover:text-royal"}
                         `}
                       >
                         {item.name}
-                        <ChevronDown
-                          className={`transition-transform duration-300 ${activeMobileMenu === item.name ? "rotate-180" : ""
-                            }`}
-                        />
-                      </button>
-
-                      <AnimatePresence>
-                        {activeMobileMenu === item.name && (
-                          <motion.ul
-                            variants={submenuVariants}
-                            initial="hidden"
-                            animate="visible"
-                            exit="exit"
-                            className="ml-4 mt-2 space-y-2 overflow-hidden"
-                          >
-                            <li>
-                              <Link
-                                href="/courses"
-                                onClick={() => setOpen(false)}
-                                className="block py-1 font-semibold text-royal"
-                              >
-                                View All Courses
-                              </Link>
-                            </li>
-                            {item.submenu.map((sub) => (
-                              <li key={sub.name}>
-                                <Link
-                                  href={sub.href}
-                                  onClick={() => setOpen(false)}
-                                  className={`block py-1 transition-colors duration-200
-                                    ${pathname === sub.href ? "text-royal font-semibold" : "text-gray-600 hover:text-royal"}
-                                  `}
-                                >
-                                  {sub.name}
-                                </Link>
-                              </li>
-                            ))}
-                          </motion.ul>
-                        )}
-                      </AnimatePresence>
-                    </>
-                  ) : (
-                    <Link
-                      href={item.href}
-                      onClick={() => setOpen(false)}
-                      className={`block font-semibold transition-colors duration-200
-                        ${pathname === item.href ? "text-royal" : "text-gray-800 hover:text-royal"}
-                      `}
-                    >
-                      {item.name}
-                    </Link>
-                  )}
-                </li>
-              ))}
-            </ul>
+                      </Link>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </div>
           </motion.aside>
         )}
       </AnimatePresence>
