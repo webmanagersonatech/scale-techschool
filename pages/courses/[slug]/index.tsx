@@ -119,14 +119,14 @@ export default function CoursePage({ course }: Props) {
 
     const relatedCourses = course
         ? (() => {
-              const sameCategory = courses.filter(
-                  (c) => c.slug !== course.slug && c.category === course.category
-              );
-              const others = courses.filter(
-                  (c) => c.slug !== course.slug && c.category !== course.category
-              );
-              return [...sameCategory, ...others].slice(0, 4);
-          })()
+            const sameCategory = courses.filter(
+                (c) => c.slug !== course.slug && c.category === course.category
+            );
+            const others = courses.filter(
+                (c) => c.slug !== course.slug && c.category !== course.category
+            );
+            return [...sameCategory, ...others].slice(0, 4);
+        })()
         : [];
 
     const validateField = (field: "name" | "email" | "phone", value: string) => {
@@ -255,13 +255,26 @@ export default function CoursePage({ course }: Props) {
                                     <div className="flex items-end justify-between gap-4">
                                         {/* Price */}
                                         <div>
-                                            <p className="text-white/60 text-sm line-through">
-                                                ₹{course.price.original.toLocaleString("en-IN")}
-                                            </p>
+                                            {course.price.original && course.price.original > course.price.offer && (
+                                                <p className="text-white/60 text-sm line-through">
+                                                    ₹{course.price.original.toLocaleString("en-IN")}
+                                                </p>
+                                            )}
 
-                                            <p className="text-3xl font-bold text-white leading-tight">
-                                                ₹{course.price.offer.toLocaleString("en-IN")}
-                                            </p>
+                                            {/* ✅ FIXED: Remove the incorrect condition */}
+                                            {course.price.offer && (
+                                                <p className="text-3xl font-bold text-white leading-tight">
+                                                    ₹{course.price.offer.toLocaleString("en-IN")}
+                                                </p>
+                                            )}
+
+                                            {course.price.options && (
+                                                <p className="text-white font-bold text-lg leading-tight">
+                                                    {course.price.options.map((opt, i) =>
+                                                        `${opt.duration}: ₹${opt.price.toLocaleString("en-IN")}`
+                                                    ).join(" | ")}
+                                                </p>
+                                            )}
                                         </div>
 
                                         {/* Rating */}
@@ -279,6 +292,7 @@ export default function CoursePage({ course }: Props) {
                                     </div>
                                 </div>
                             )}
+
                         </div>
 
                         {/* Features */}
@@ -305,7 +319,7 @@ export default function CoursePage({ course }: Props) {
                         </div>
 
                         {/* CTA Buttons */}
-                        <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <div className="mt-4 grid grid-cols-1  gap-3">
                             <button
                                 onClick={() => setShowJoinForm(true)}
                                 className="w-full flex items-center justify-center gap-2 px-6 py-3.5  bg-emerald-600 text-white font-semibold hover:bg-emerald-700 transition-all duration-200 shadow-lg shadow-emerald-200"
@@ -314,14 +328,14 @@ export default function CoursePage({ course }: Props) {
                                 Enroll Now
                             </button>
 
-                            <a
+                            {/* <a
                                 href={course.brochure}
                                 download
                                 className="w-full flex items-center justify-center gap-2 px-6 py-3.5 border-2 border-emerald-600 text-emerald-600 font-semibold hover:bg-emerald-600 hover:text-white transition-all duration-200"
                             >
                                 <Download size={18} />
                                 Download Brochure
-                            </a>
+                            </a> */}
                         </div>
                     </motion.div>
                 </div>
@@ -331,7 +345,7 @@ export default function CoursePage({ course }: Props) {
 
 
             {course.brochureContent && (
-                <section className="pt-20 bg-gradient-to-b from-slate-50 to-white">
+                <section className="pt-6 bg-gradient-to-b from-slate-50 to-white">
                     <div className="max-w-7xl mx-auto px-6">
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
@@ -355,7 +369,7 @@ export default function CoursePage({ course }: Props) {
 
             {/* ================= EXPLORE RELATED COURSES ================= */}
             {relatedCourses.length > 0 && (
-                <section className="py-20 bg-gray-50">
+                <section className="py-6 bg-gray-50">
                     <div className="max-w-7xl mx-auto px-6">
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
@@ -522,11 +536,10 @@ export default function CoursePage({ course }: Props) {
                                     type="text"
                                     placeholder="Your full name"
                                     required
-                                    className={`w-full border rounded-xl px-4 py-3 text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:border-transparent transition ${
-                                        touched.name && formErrors.name
-                                            ? "border-red-400 focus:ring-red-400"
-                                            : "border-slate-300 focus:ring-emerald-500"
-                                    }`}
+                                    className={`w-full border rounded-xl px-4 py-3 text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:border-transparent transition ${touched.name && formErrors.name
+                                        ? "border-red-400 focus:ring-red-400"
+                                        : "border-slate-300 focus:ring-emerald-500"
+                                        }`}
                                     value={formData.name}
                                     onChange={(e) => {
                                         const val = sanitizeNameInput(e.target.value);
@@ -551,11 +564,10 @@ export default function CoursePage({ course }: Props) {
                                     type="email"
                                     placeholder="your@email.com"
                                     required
-                                    className={`w-full border rounded-xl px-4 py-3 text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:border-transparent transition ${
-                                        touched.email && formErrors.email
-                                            ? "border-red-400 focus:ring-red-400"
-                                            : "border-slate-300 focus:ring-emerald-500"
-                                    }`}
+                                    className={`w-full border rounded-xl px-4 py-3 text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:border-transparent transition ${touched.email && formErrors.email
+                                        ? "border-red-400 focus:ring-red-400"
+                                        : "border-slate-300 focus:ring-emerald-500"
+                                        }`}
                                     value={formData.email}
                                     onChange={(e) => {
                                         const val = e.target.value;
@@ -582,11 +594,10 @@ export default function CoursePage({ course }: Props) {
                                     placeholder="98765 43210"
                                     maxLength={10}
                                     required
-                                    className={`w-full border rounded-xl px-4 py-3 text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:border-transparent transition ${
-                                        touched.phone && formErrors.phone
-                                            ? "border-red-400 focus:ring-red-400"
-                                            : "border-slate-300 focus:ring-emerald-500"
-                                    }`}
+                                    className={`w-full border rounded-xl px-4 py-3 text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:border-transparent transition ${touched.phone && formErrors.phone
+                                        ? "border-red-400 focus:ring-red-400"
+                                        : "border-slate-300 focus:ring-emerald-500"
+                                        }`}
                                     value={formData.phone}
                                     onChange={(e) => {
                                         const val = sanitizePhoneInput(e.target.value, formData.phone);

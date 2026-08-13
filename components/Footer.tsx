@@ -35,7 +35,7 @@ export default function Footer() {
                 alt="Sona Tech-School Logo"
                 className="w-16 object-contain"
               />
-              <h2 className="text-2xl font-poppins font-semibold">Sona Tech-School</h2>
+              <h2 className="text-xl font-poppins font-semibold">Sona Tech-School</h2>
             </div>
 
             <p className="text-white/80 text-sm leading-relaxed mb-4">

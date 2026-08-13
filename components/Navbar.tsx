@@ -87,7 +87,7 @@ export default function Navbar() {
                 >
                   <Link
                     href={item.href}
-                    className={`flex items-center gap-1 transition-all duration-300 font-semibold
+                    className={`flex items-center gap-1 transition-all duration-300 
                       ${pathname === item.href || pathname.startsWith(item.href + "/") ? "text-gold" : "text-gray-800"}
                     `}
                   >
@@ -138,7 +138,7 @@ export default function Navbar() {
                 <Link
                   key={item.name}
                   href={item.href}
-                  className={`relative after:content-[''] after:block after:w-0 after:h-0.5 after:bg-gold after:transition-all after:duration-300 hover:after:w-full transition-colors duration-300 font-semibold
+                  className={`relative after:content-[''] after:block after:w-0 after:h-0.5 after:bg-gold after:transition-all after:duration-300 hover:after:w-full transition-colors duration-300 
                     ${pathname === item.href ? "text-gold" : "text-gray-800"}
                   `}
                 >
@@ -149,8 +149,8 @@ export default function Navbar() {
           </div>
 
           {/* HAMBURGER BUTTON */}
-          <button 
-            onClick={() => setOpen(true)} 
+          <button
+            onClick={() => setOpen(true)}
             className="md:hidden z-50 space-y-1.5"
             aria-label="Open menu"
           >
@@ -188,8 +188,8 @@ export default function Navbar() {
             {/* Sticky header with close button */}
             <div className="sticky top-0 bg-white z-10 p-6 pb-0 flex justify-between items-center border-b border-gray-100">
               <h2 className="text-xl font-bold text-royal">Menu</h2>
-              <button 
-                onClick={() => setOpen(false)} 
+              <button
+                onClick={() => setOpen(false)}
                 className="p-2 hover:bg-gray-100 rounded-full transition-colors"
                 aria-label="Close menu"
               >
@@ -208,7 +208,7 @@ export default function Navbar() {
                           onClick={() =>
                             setActiveMobileMenu(activeMobileMenu === item.name ? null : item.name)
                           }
-                          className={`flex justify-between items-center w-full font-semibold transition-colors duration-200 py-2
+                          className={`flex justify-between items-center w-full  transition-colors duration-200 py-2
                             ${pathname === item.href || pathname.startsWith(item.href + "/") ? "text-royal" : "text-gray-800"}
                           `}
                         >
@@ -234,7 +234,7 @@ export default function Navbar() {
                                 <Link
                                   href="/courses"
                                   onClick={() => setOpen(false)}
-                                  className="block py-2 px-3 font-semibold text-royal bg-royal/5 rounded-lg hover:bg-royal/10 transition-colors"
+                                  className="block py-2 px-3  text-royal bg-royal/5 rounded-lg hover:bg-royal/10 transition-colors"
                                 >
                                   View All Courses
                                 </Link>
@@ -245,8 +245,8 @@ export default function Navbar() {
                                     href={sub.href}
                                     onClick={() => setOpen(false)}
                                     className={`block py-2 px-3 rounded-lg transition-colors duration-200
-                                      ${pathname === sub.href 
-                                        ? "text-royal font-semibold bg-royal/5" 
+                                      ${pathname === sub.href
+                                        ? "text-royal  bg-royal/5"
                                         : "text-gray-600 hover:text-royal hover:bg-gray-50"
                                       }
                                     `}
@@ -263,7 +263,7 @@ export default function Navbar() {
                       <Link
                         href={item.href}
                         onClick={() => setOpen(false)}
-                        className={`block py-2 font-semibold transition-colors duration-200
+                        className={`block py-2  transition-colors duration-200
                           ${pathname === item.href ? "text-royal" : "text-gray-800 hover:text-royal"}
                         `}
                       >
