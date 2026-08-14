@@ -1,5 +1,6 @@
 import { GetStaticPaths, GetStaticProps } from "next";
-import Head from "next/head";
+import SEO from "../../../components/SEO";
+import { courseOgImage, SITE_URL } from "../../../lib/seo";
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import SpeedSection from "../../../components/Drop";
@@ -152,19 +153,24 @@ export default function CoursePage({ course }: Props) {
 
     return (
         <>
-            <Head>
-                <title>{course.title} | Sona Tech School</title>
-                <meta name="description" content={course.description} />
-                <meta property="og:type" content="website" />
-                <meta property="og:title" content={`${course.title} | Sona Tech School`} />
-                <meta property="og:description" content={course.description} />
-                <meta property="og:image" content={course.image} />
-                <meta property="og:url" content={`https://sonatechschool.com/courses/${course.slug}`} />
-                <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:title" content={`${course.title} | Sona Tech School`} />
-                <meta name="twitter:description" content={course.description} />
-                <meta name="twitter:image" content={course.image} />
-            </Head>
+            <SEO
+                title={course.title}
+                description={course.description}
+                image={courseOgImage(course.slug)}
+                url={`${SITE_URL}/courses/${course.slug}`}
+                type="article"
+                jsonLd={{
+                    "@context": "https://schema.org",
+                    "@type": "Course",
+                    name: course.title,
+                    description: course.description,
+                    provider: {
+                        "@type": "EducationalOrganization",
+                        name: "SCALE Tech School",
+                        sameAs: SITE_URL,
+                    },
+                }}
+            />
 
             <Navbar />
 

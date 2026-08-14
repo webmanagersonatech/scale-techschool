@@ -1,6 +1,7 @@
 import Navbar from "../components/Navbar"
 import Footer from "../components/Footer"
 import Breadcrumb from "../components/Breadcrumb"
+import SEO from "../components/SEO"
 
 const stats = [
   { value: "105", label: "Years of Group Legacy" },
@@ -31,6 +32,10 @@ const streams = [
 export default function AboutPage() {
   return (
     <>
+      <SEO
+        title="About Us"
+        description="Learn about SCALE — Sona Centre for Advanced Learning & Entrepreneurship — our legacy, programme tracks and approach to industry-ready education."
+      />
       <Navbar />
       <main className="pt-32 pb-20 bg-white">
         {/* Hero */}

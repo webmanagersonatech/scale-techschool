@@ -1,6 +1,7 @@
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Breadcrumb from "../components/Breadcrumb";
+import SEO from "../components/SEO";
 
 const founders = [
   {
@@ -71,6 +72,10 @@ function PersonCard({ name, role, org, photo }: { name: string; role: string; or
 export default function FacultyPage() {
   return (
     <>
+      <SEO
+        title="Faculty & Team"
+        description="Meet the faculty and team behind SCALE Tech School's industry-aligned diploma and certification programmes."
+      />
       <Navbar />
       <main className="pt-32 pb-20 bg-white">
         {/* Hero */}

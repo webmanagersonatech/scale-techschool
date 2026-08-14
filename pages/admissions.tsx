@@ -2,6 +2,7 @@ import Navbar from "../components/Navbar"
 import Footer from "../components/Footer"
 import Breadcrumb from "../components/Breadcrumb"
 import Link from "next/link"
+import SEO from "../components/SEO"
 
 const pathwaySteps = [
   {
@@ -27,6 +28,10 @@ const pathwaySteps = [
 export default function AdmissionsPage() {
   return (
     <>
+      <SEO
+        title="Admissions"
+        description="Find eligibility criteria, application steps and intake details for SCALE Tech School's diploma and certification programmes."
+      />
       <Navbar />
       <main className="pt-32 pb-20 bg-white">
         {/* Hero */}

@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import Head from "next/head";
+import SEO from "../../components/SEO";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { motion, AnimatePresence } from "framer-motion";
@@ -47,13 +47,10 @@ export default function CoursesPage() {
 
   return (
     <>
-      <Head>
-        <title>All Courses | Sona Tech-School</title>
-        <meta
-          name="description"
-          content="Browse every programme offered at Sona Tech-School. Search and filter by category to find the right course for you."
-        />
-      </Head>
+      <SEO
+        title="All Courses"
+        description="Browse every diploma and certification programme offered at SCALE Tech School. Search and filter by category to find the right course for you."
+      />
 
       <Navbar />
 
