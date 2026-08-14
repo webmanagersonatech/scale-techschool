@@ -253,7 +253,7 @@ export default function CoursePage({ course }: Props) {
                             <img
                                 src={course.image}
                                 alt={course.title}
-                                className="w-full h-[380px] object-cover"
+                                className="w-full  object-cover"
                             />
 
                             {course.price && (
