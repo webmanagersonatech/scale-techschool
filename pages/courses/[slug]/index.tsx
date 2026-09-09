@@ -209,7 +209,7 @@ export default function CoursePage({ course }: Props) {
                         {/* Stats Grid */}
                         <div className="grid grid-cols-3 gap-4 pt-2">
                             {[
-                                { label: "Duration", value: `${course.months} Months`, Icon: Calendar },
+                                { label: "Duration", value: `${course.months}`, Icon: Calendar },
                                 { label: "Training", value: `${course.hours} Hours`, Icon: Clock },
                                 { label: "Projects", value: course.projects, Icon: FolderKanban },
                             ].map((item, i) => (

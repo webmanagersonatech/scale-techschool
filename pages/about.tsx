@@ -6,7 +6,7 @@ import SEO from "../components/SEO"
 const stats = [
   { value: "105", label: "Years of Group Legacy" },
   { value: "3", label: "Depths of Immersion" },
-  { value: "3", label: "Programme Tracks" },
+  { value: "4", label: "Programme Tracks" },
   { value: "3", label: "Development Programmes" },
 ];
 

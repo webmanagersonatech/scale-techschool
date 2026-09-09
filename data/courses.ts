@@ -37,7 +37,7 @@ export const courses: Course[] = [
     slug: "advanced-computing-ai-engineering-cse",
     title: "Advanced Computing & AI Engineering (CSE)",
     description: "An Advanced Industry Diploma combining applied Python, data structures & algorithms, full-stack development, and AI/ML foundations for CSE, BE, MSc and MCA students.",
-    months: "3",
+    months: "80 Hours (Blended)",
     category: "Computer Science & Allied Streams",
     hours: "80",
     projects: "1 Capstone",
@@ -272,7 +272,7 @@ export const courses: Course[] = [
     slug: "intelligent-systems-enterprise-technology-it",
     title: "Intelligent Systems and Enterprise Technology (IT)",
     description: "An Advanced Industry Diploma focusing on intelligent systems, enterprise technology integration, and modern IT infrastructure for B Tech, BE, MSc, M Tech & MCA students.",
-    months: "3",
+    months: "80 Hours (Blended)",
     hours: "80",
     projects: "1 Capstone",
     category: "Computer Science & Allied Streams",
@@ -641,7 +641,7 @@ export const courses: Course[] = [
     slug: "artificial-intelligence-machine-learning",
     title: "Artificial Intelligence & Machine Learning",
     description: "A comprehensive program covering AI/ML foundations, deep learning, LLMs, RAG, and agentic systems for B Tech, BE, MSc, M Tech & MCA students.",
-    months: "3",
+    months: "80 Hours (Blended)",
     hours: "80",
     projects: "1 Capstone",
     category: "Computer Science & Allied Streams",
@@ -915,11 +915,11 @@ export const courses: Course[] = [
     description:
       "An Industry Certificate Program covering AI & Data Science fundamentals, Python, data analytics, machine learning, enterprise AI, and Generative AI for students, graduates, analysts, engineers, working professionals, and career changers.",
 
-    months: "3",
+    months: "5 Days",
     hours: "15",
 
     category: "Computer Science & Allied Streams",
-    projects: "1 Capstone",
+    projects: "1-3 Mini Project(s)",
     recommended: false,
     price: {
 
@@ -1116,12 +1116,12 @@ export const courses: Course[] = [
     slug: "data-science-machine-learning-ai-engineering-idp",
     title: "Data Science, Machine Learning & AI Engineering (IDP)",
     description:
-      "An Industry Certificate Program covering AI & Data Science fundamentals, Python, data analytics, machine learning, enterprise AI, and Generative AI for students, graduates, analysts, engineers, working professionals, and career changers.",
+      "An Industry Diploma Program with curriculum covering Data Science, Python, analytics, ML, Power BI, and Generative AI for students, graduates, analysts, and professionals.",
 
-    months: "3",
+    months: "~1–2 Months",
     hours: "30",
     category: "Computer Science & Allied Streams",
-    projects: "3+ Industry",
+    projects: "3+ Industry Projects",
     recommended: false,
     price: {
 
@@ -1328,8 +1328,8 @@ export const courses: Course[] = [
     slug: "data-science-machine-learning-ai-engineering-aidp",
     title: "Data Science, Machine Learning & AI Engineering (AIDP)",
     description:
-      "An Industry Diploma Program with curriculum covering Data Science, Python, analytics, ML, Power BI, and Generative AI for students, graduates, analysts, and professionals.",
-    months: "3",
+      "An Advanced Industry Diploma Program with 60 contact hours and 20 weekend sessions covering Data Science, Python, analytics, ML, Power BI, and Generative AI for students, graduates, analysts, and professionals.",
+    months: "2–6 Months",
     hours: "60",
     projects: "1 Capstone",
     category: "Computer Science & Allied Streams",
@@ -1589,9 +1589,9 @@ export const courses: Course[] = [
     slug: "python-software-engineering-application-development-icp",
     title: "Python Software Engineering & Application Development (ICP)",
     description: "An Industry Certificate Program covering Python fundamentals, loops, functions, data structures, and automation for students, graduates, and professionals.",
-    months: "3",
+    months: "5 Days",
     hours: "15",
-    projects: "1 Capstone",
+    projects: "1-3 Mini Project(s)",
     price: {
 
       offer: 11999
@@ -1781,9 +1781,9 @@ export const courses: Course[] = [
     slug: "python-software-engineering-application-development-idp",
     title: "Python Software Engineering & Application Development (IDP)",
     description: "An Industry Diploma Program with 3+ industry projects covering Data Science, Python, ML, BI, and Generative AI for students and professionals.",
-    months: "3",
+    months: "~1–2 Months",
     hours: "30",
-    projects: "3+ Industry",
+    projects: "3+ Industry Projects",
     price: {
 
       offer: 22999
@@ -1978,7 +1978,7 @@ export const courses: Course[] = [
     slug: "python-software-engineering-application-development-aidp",
     title: "Python Software Engineering & Application Development (AIDP)",
     description: "An Advanced Industry Diploma program to become a professional Python developer for modern technology careers with 60 contact hours and 20 weekend sessions.",
-    months: "3",
+    months: "2–6 Months",
     category: "Computer Science & Allied Streams",
     hours: "60",
     price: {
@@ -2233,13 +2233,13 @@ export const courses: Course[] = [
     slug: "data-engineering-advanced-analytics-python-icp",
     title: "Data Engineering & Advanced Analytics with Python (ICP)",
     description: "An Industry Certificate Program covering Data Analytics, NumPy, Pandas, data cleaning, EDA, and visualization for students, graduates, analysts, and professionals.",
-    months: "3",
+    months: "5 Days",
     price: {
 
       offer: 11999
     },
     hours: "15",
-    projects: "1 Capstone",
+    projects: "1-3 Mini Project(s)",
     category: "Computer Science & Allied Streams",
     recommended: false,
     image: "/images/course-image/Data-Engineering-&-Advanced-Analytics-with-Python-(ICP).webp",
@@ -2424,7 +2424,7 @@ export const courses: Course[] = [
     slug: "data-engineering-advanced-analytics-python-idp",
     title: "Data Engineering & Advanced Analytics with Python (IDP)",
     description: "An Industry Diploma Program covering Data Analytics, Python, NumPy, Pandas, data cleaning, and EDA for students, graduates, analysts, and professionals.",
-    months: "3",
+    months: "~1–2 Months",
     hours: "30",
     price: {
 
@@ -2616,7 +2616,7 @@ export const courses: Course[] = [
     slug: "data-engineering-advanced-analytics-python-aidp",
     title: "Data Engineering & Advanced Analytics with Python (AIDP)",
     description: "An Advanced Industry Diploma with 60 contact hours and 20 weekend sessions covering Python analytics, NumPy, Pandas, data cleaning, EDA, and business reporting.",
-    months: "3",
+    months: "2–6 Months",
     hours: "60",
     price: {
 
@@ -2869,13 +2869,13 @@ export const courses: Course[] = [
     slug: "enterprise-ai-transformation-governance-icp",
     title: "Enterprise AI Transformation & Governance (ICP)",
     description: "An Industry Certificate Program covering Enterprise AI, Generative AI, prompt engineering, AI productivity, workflow automation, and responsible AI for professionals.",
-    months: "2",
+    months: "5 Days",
     hours: "15",
     price: {
 
       offer: 11999
     },
-    projects: "1 Capstone",
+    projects: "1-3 Mini Project(s)",
     category: "Computer Science & Allied Streams",
     recommended: false,
     image: "/images/course-image/Enterprise-AI-Transformation-&-Governance-(ICP).webp",
@@ -3064,7 +3064,7 @@ export const courses: Course[] = [
     slug: "enterprise-ai-transformation-governance-idp",
     title: "Enterprise AI Transformation & Governance (IDP)",
     description: "An Industry Diploma Program with 30 weekend hours covering Enterprise AI, Generative AI, prompt engineering, automation, and business analytics for professionals.",
-    months: "2",
+    months: "~1–2 Months",
     hours: "30",
     price: {
 
@@ -3256,7 +3256,7 @@ export const courses: Course[] = [
     slug: "enterprise-ai-transformation-governance-aidp",
     title: "Enterprise AI Transformation & Governance (AIDP)",
     description: "An Advanced Industry Diploma with 60 contact hours and 20 weekend sessions to lead enterprise AI transformation and innovation for professionals.",
-    months: "3",
+    months: "2–6 Months",
     hours: "60",
     price: {
 
@@ -3510,7 +3510,7 @@ export const courses: Course[] = [
     slug: "introduction-to-unreal-engine",
     title: "Introduction to Unreal Engine",
     description: "A foundational program covering Unreal Engine installation, UI navigation, level creation, asset import, lighting, cinematics, and rendering for beginners.",
-    months: "2",
+    months: "~1–2 Months",
     hours: "30",
     price: {
 
@@ -3781,7 +3781,7 @@ export const courses: Course[] = [
     slug: "unreal-engine-foundation",
     title: "Unreal Engine Foundation",
     description: "A comprehensive program covering Unreal Engine from basics to advanced topics including materials, Niagara particles, Blueprints, VR walkthrough, and cinematics.",
-    months: "3",
+    months: "2–6 Months",
     hours: "60",
     projects: "1 Capstone",
     price: {
@@ -4255,7 +4255,7 @@ export const courses: Course[] = [
     slug: "mechatronics-systems-engineer",
     title: "Mechatronics Systems Engineer - Global and Industry Level Finishing School",
     description: "An Advanced Industry Diploma program for mechatronics systems engineering with 80 contact hours covering control systems, sensors, PID, motors, and system integration.",
-    months: "3",
+    months: "80 Hours (Blended)",
     category: "Mechanical & Mechatronics & Allied Streams",
     hours: "80",
     projects: "1 Capstone",
@@ -4698,7 +4698,7 @@ export const courses: Course[] = [
     slug: "scalebridge-aero-boot-camp-im1-im2",
     title: "SCALEBridge Aero Boot Camp (IM1 & IM2)",
     description: "A rigorous 4-6 week intensive program in Aerospace Design, Analysis & Simulation powered by SonStar 3DX, with digital prototyping and live capstone projects.",
-    months: "1.5",
+    months: "1.5 Months",
     hours: "80-120",
     category: "Mechanical & Mechatronics & Allied Streams",
     projects: "1 Capstone",
@@ -4839,7 +4839,7 @@ export const courses: Course[] = [
     slug: "scalebridge-aero-boot-camp-ami-am2",
     title: "SCALEBridge Aero Boot Camp (AMI & AM2)",
     description: "Step into the future of aerospace with our intensive training in Aerospace Design, Analysis, Manufacturing, and Simulation using the SonaStar 3DX Platform. Built to bridge the gap between academic knowledge and real industry needs, this program equips you with modern engineering tools through two flexible tracks.",
-    months: "1.5",
+    months: "1.5 Months",
     hours: "80-120",
     category: "Mechanical & Mechatronics & Allied Streams",
     projects: "1 Capstone",
@@ -4979,7 +4979,7 @@ export const courses: Course[] = [
     slug: "electronics-telecommunication-systems-engineer",
     title: "Electronics & Telecommunication Systems Engineer",
     description: "An Advanced Industry Diploma program for electronics & telecommunication systems engineering with 80 contact hours covering embedded systems, RTL/semiconductor design, physical chip implementation, and communication networks.",
-    months: "3",
+    months: "80 Hours (Blended)",
     hours: "80",
     category: "Electronics Communication & Allied Streams",
     projects: "1 Capstone",
@@ -5438,13 +5438,13 @@ export const courses: Course[] = [
     slug: "applied-statistics-quantitative-business-analytics-icp",
     title: "Applied Statistics & Quantitative Business Analytics (ICP)",
     description: "An Industry Certificate Program covering business statistics, descriptive statistics, probability, data distributions, correlation & regression, and hypothesis testing for business decisions.",
-    months: "2",
+    months: "5 Days",
     hours: "15",
     price: {
 
       offer: 11999
     },
-    projects: "1 Capstone",
+    projects: "1-3 Mini Project(s)",
     category: "Management, Analytics & Allied Streams",
     recommended: false,
     image: "/images/course-image/Applied-Statistics-&-Quantitative-Business-Analytics-(ICP).webp",
@@ -5629,7 +5629,7 @@ export const courses: Course[] = [
     slug: "applied-statistics-quantitative-business-analytics-idp",
     title: "Applied Statistics & Quantitative Business Analytics (IDP)",
     description: "An Industry Diploma Program with 30 weekend hours covering business statistics, data visualization, probability, sampling & estimation, and hypothesis testing for business decision-making.",
-    months: "2",
+    months: "~1–2 Months",
     hours: "30",
     price: {
 
@@ -5817,7 +5817,7 @@ export const courses: Course[] = [
     slug: "applied-statistics-quantitative-business-analytics-aidp",
     title: "Applied Statistics & Quantitative Business Analytics (AIDP)",
     description: "An Advanced Industry Diploma with 60 contact hours and 20 weekend sessions to become a data-driven decision-making specialist, covering statistical modelling, predictive analytics, and enterprise decision science.",
-    months: "3",
+    months: "2–6 Months",
     hours: "60",
     price: {
 
@@ -6070,14 +6070,14 @@ export const courses: Course[] = [
     slug: "enterprise-reporting-automation-excel-vba-icp",
     title: "Enterprise Reporting & Automation with Excel & VBA (ICP)",
     description: "An Industry Certificate Program covering business statistics, advanced Excel functions, data cleaning, pivot tables, dashboard development, and VBA automation basics.",
-    months: "2",
+    months: "5 Days",
     price: {
 
       offer: 11999
     },
     hours: "15",
     category: "Management, Analytics & Allied Streams",
-    projects: "1 Capstone",
+    projects: "1-3 Mini Project(s)",
     recommended: false,
     image: "/images/course-image/Enterprise-Reporting-&-Automation-with-Excel-&-VBA-(ICP).webp",
     brochure: "/brochures/enterprise-reporting-automation-excel-vba-icp.pdf",
@@ -6265,7 +6265,7 @@ export const courses: Course[] = [
     slug: "enterprise-reporting-automation-excel-vba-idp",
     title: "Enterprise Reporting & Automation with Excel & VBA (IDP)",
     description: "An Industry Diploma Program with 30 weekend hours covering Excel for business analytics, data cleaning, pivot tables, dashboard design, and business analytics & performance monitoring.",
-    months: "2",
+    months: "~1–2 Months",
     price: {
 
       offer: 22999
@@ -6453,7 +6453,7 @@ export const courses: Course[] = [
     slug: "enterprise-reporting-automation-excel-vba-aidp",
     title: "Enterprise Reporting & Automation with Excel & VBA (AIDP)",
     description: "An Advanced Industry Diploma with 60 contact hours and 20 weekend sessions to become an advanced business analytics and automation specialist, covering VBA programming, dashboard design, and enterprise reporting.",
-    months: "3",
+    months: "2–6 Months",
     hours: "60",
     price: {
 
@@ -6707,14 +6707,14 @@ export const courses: Course[] = [
     slug: "enterprise-business-intelligence-power-bi-icp",
     title: "Enterprise Business Intelligence with Microsoft Power BI (ICP)",
     description: "An Industry Certificate Program covering business intelligence & Power BI fundamentals, data import & preparation, data modeling, dashboard development, and interactive reporting & storytelling.",
-    months: "2",
+    months: "5 Days",
     price: {
 
       offer: 11999
     },
     hours: "15",
     category: "Management, Analytics & Allied Streams",
-    projects: "1 Capstone",
+    projects: "1-3 Mini Project(s)",
     recommended: false,
     image: "/images/course-image/Enterprise-Business-Intelligence-with-Microsoft-Power-BI-(ICP).webp",
     brochure: "/brochures/enterprise-business-intelligence-power-bi-icp.pdf",
@@ -6902,7 +6902,7 @@ export const courses: Course[] = [
     slug: "enterprise-business-intelligence-power-bi-idp",
     title: "Enterprise Business Intelligence with Microsoft Power BI (IDP)",
     description: "An Industry Diploma Program with 30 weekend hours covering Power BI fundamentals, data preparation using Power Query, data modeling, dashboard design, and DAX fundamentals.",
-    months: "2",
+    months: "~1–2 Months",
     price: {
 
       offer: 22999
@@ -7086,7 +7086,7 @@ export const courses: Course[] = [
     slug: "enterprise-business-intelligence-power-bi-aidp",
     title: "Enterprise Business Intelligence with Microsoft Power BI (AIDP)",
     description: "An Advanced Industry Diploma with 60 contact hours and 20 weekend sessions to become a business intelligence & data visualisation expert, covering Power Query, DAX, KPI dashboard design, and enterprise BI governance.",
-    months: "3",
+    months: "2–6 Months",
     hours: "60",
     price: {
 
@@ -7339,14 +7339,14 @@ export const courses: Course[] = [
     slug: "business-communication-executive-facilitation-icp",
     title: "Business Communication & Executive Facilitation (ICP)",
     description: "An Industry Certificate Program covering structured thinking, professional communication, public speaking, business storytelling & persuasion, and executive presence & leadership communication.",
-    months: "2",
+    months: "5 Days",
     price: {
 
       offer: 11999
     },
     hours: "15",
     category: "Management, Analytics & Allied Streams",
-    projects: "1 Capstone",
+    projects: "1-3 Mini Project(s)",
     recommended: false,
     image: "/images/course-image/Business-Communication-&-Executive-Facilitation-(ICP).webp",
     brochure: "/brochures/business-communication-executive-facilitation-icp.pdf",
@@ -7534,7 +7534,7 @@ export const courses: Course[] = [
     slug: "business-communication-executive-facilitation-idp",
     title: "Business Communication & Executive Facilitation (IDP)",
     description: "An Industry Diploma Program with 30 weekend hours covering clear thinking & communication, presentation skills & public speaking, business storytelling & persuasion, and executive presence development.",
-    months: "2",
+    months: "~1–2 Months",
     hours: "30",
     price: {
 
@@ -7734,7 +7734,7 @@ export const courses: Course[] = [
     slug: "business-communication-executive-facilitation-aidp",
     title: "Business Communication & Executive Facilitation (AIDP)",
     description: "An Advanced Industry Diploma with 60 contact hours and 20 weekend sessions to master professional communication, executive presence & facilitation, covering structured thinking, storytelling, and enterprise leadership communication.",
-    months: "3",
+    months: "2–6 Months",
     price: {
 
       offer: 68999
@@ -7986,15 +7986,15 @@ export const courses: Course[] = [
   {
     slug: "workplace-wellbeing-organisational-behaviour-design-icp",
     title: "Workplace Wellbeing & Organisational Behaviour Design (ICP)",
-    description: "An Industry Certificate Program covering leadership identity & self-awareness, executive presence, and decision-making under pressure using the OODA loop and pre-mortem analysis.",
-    months: "2",
+    description: "An Industry Certificate Program covering happiness engineering, emotional intelligence & self-awareness, productivity & sustainable performance, stress management & resilience, and workplace well-being.",
+    months: "5 Days",
     price: {
 
       offer: 11999
     },
     hours: "15",
     category: "Management, Analytics & Allied Streams",
-    projects: "1 Capstone",
+    projects: "1-3 Mini Project(s)",
     recommended: false,
     image: "/images/course-image/Workplace-Wellbeing-&-Organisational-Behaviour-Design-(ICP).webp",
     brochure: "/brochures/workplace-wellbeing-organisational-behaviour-design-icp.pdf",
@@ -8173,8 +8173,8 @@ export const courses: Course[] = [
   {
     slug: "workplace-wellbeing-organisational-behaviour-design-idp",
     title: "Workplace Wellbeing & Organisational Behaviour Design (IDP)",
-    description: "An Industry Diploma Program with 30 weekend hours covering foundations of leadership, self-leadership & emotional intelligence, executive presence, strategic thinking, decision-making, and leading high-performance teams.",
-    months: "2",
+    description: "An Industry Diploma Program with 30 weekend hours covering happiness engineering, emotional intelligence & self-awareness, productivity & sustainable performance, stress management & resilience, and workplace well-being.",
+    months: "~1–2 Months",
     hours: "30",
     price: {
 
@@ -8366,7 +8366,7 @@ export const courses: Course[] = [
     slug: "workplace-wellbeing-organisational-behaviour-design-aidp",
     title: "Workplace Wellbeing & Organisational Behaviour Design (AIDP)",
     description: "An Advanced Industry Diploma with 60 contact hours and 20 weekend sessions to design a life of sustainable success, well-being & leadership, covering happiness science, emotional intelligence, peak performance, and organisational well-being.",
-    months: "3",
+    months: "2–6 Months",
     hours: "60",
     price: {
 
@@ -8375,7 +8375,7 @@ export const courses: Course[] = [
     category: "Management, Analytics & Allied Streams",
     projects: "1 Capstone",
     recommended: true,
-    image: "/images/course-image/Business-Communication-&-Executive-Facilitation-(AIDP).webp",
+    image: "/images/course-image/Workplace-Wellbeing-&-Organisational-Behaviour-Design-(AIDP).webp",
     brochure: "/brochures/workplace-wellbeing-organisational-behaviour-design-aidp.pdf",
     features: {
       mentorship: true,
@@ -8620,14 +8620,14 @@ export const courses: Course[] = [
     slug: "organisational-psychology-strategic-influence-icp",
     title: "Organisational Psychology & Strategic Influence (ICP)",
     description: "An Industry Certificate Program covering organisational dynamics, mapping power & networks, visibility & reputation management, and navigating political situations.",
-    months: "2",
+    months: "5 Days",
     price: {
 
       offer: 11999
     },
     hours: "15",
     category: "Management, Analytics & Allied Streams",
-    projects: "1 Capstone",
+    projects: "1-3 Mini Project(s)",
     recommended: false,
     image: "/images/course-image/Organisational-Psychology-&-Strategic-Influence-(ICP).webp",
     brochure: "/brochures/organisational-psychology-strategic-influence-icp.pdf",
@@ -8803,7 +8803,7 @@ export const courses: Course[] = [
     slug: "organisational-psychology-strategic-influence-idp",
     title: "Organisational Psychology & Strategic Influence (IDP)",
     description: "An Industry Diploma Program with 30 weekend hours covering organisational dynamics, intelligence & organisational awareness, stakeholder management, professional visibility & personal brand, and influence & persuasion strategies.",
-    months: "2",
+    months: "~1–2 Months",
     hours: "30",
     price: {
 
@@ -8991,7 +8991,7 @@ export const courses: Course[] = [
     slug: "organisational-psychology-strategic-influence-aidp",
     title: "Organisational Psychology & Strategic Influence (AIDP)",
     description: "An Advanced Industry Diploma with 60 contact hours and 20 weekend sessions to master organisational influence, leadership & strategic networking, covering organisational dynamics, relationship building, political intelligence, and leadership impact.",
-    months: "3",
+    months: "2–6 Months",
     category: "Management, Analytics & Allied Streams",
     hours: "60",
     price: {
@@ -9242,11 +9242,11 @@ export const courses: Course[] = [
   {
     slug: "executive-leadership-strategic-management-icp",
     title: "Executive Leadership & Strategic Management (ICP)",
-    description: "An Industry Certificate Program covering happiness engineering, emotional intelligence & self-awareness, productivity & sustainable performance, stress management & resilience, and workplace well-being.",
-    months: "2",
+    description: "An Industry Certificate Program covering leadership identity & self-awareness, executive presence, and decision-making under pressure using the OODA loop and pre-mortem analysis.",
+    months: "5 Days",
     category: "Management, Analytics & Allied Streams",
     hours: "15",
-    projects: "1 Capstone",
+    projects: "1-3 Mini Project(s)",
     price: {
 
       offer: 11999
@@ -9442,7 +9442,7 @@ export const courses: Course[] = [
     slug: "executive-leadership-strategic-management-idp",
     title: "Executive Leadership & Strategic Management (IDP)",
     description: "An Industry Diploma Program with 30 weekend hours covering foundations of leadership, self-leadership & emotional intelligence, executive presence, strategic thinking, decision-making, and leading high-performance teams.",
-    months: "2",
+    months: "~1–2 Months",
     hours: "30",
     price: {
 
@@ -9638,7 +9638,7 @@ export const courses: Course[] = [
     slug: "executive-leadership-strategic-management-aidp",
     title: "Executive Leadership & Strategic Management (AIDP)",
     description: "An Advanced Industry Diploma with 60 contact hours and 20 weekend sessions to transform into a strategic leader for the future of business, covering leadership foundations, team leadership, strategic impact, and transformation.",
-    months: "3",
+    months: "2–6 Months",
     hours: "60",
     price: {
 
@@ -9890,7 +9890,7 @@ export const courses: Course[] = [
     slug: "fintech-digital-finance",
     title: "FinTech & Digital Finance",
     description: "A Postgraduate Certificate Programme covering open banking, digital payments, embedded finance, blockchain, CBDCs and AI-powered financial services across 15 modules and 150 contact hours.",
-    months: "6",
+    months: "6 Months",
     price: {
 
       offer: 108999
@@ -10128,7 +10128,7 @@ export const courses: Course[] = [
     slug: "cybersecurity-ai-driven-threat-intelligence",
     title: "Cybersecurity & AI-Driven Threat Intelligence",
     description: "A Postgraduate Certificate Programme covering security operations, ethical hacking, digital forensics and AI-powered threat detection across 15 modules and 150 contact hours.",
-    months: "6",
+    months: "6 Months",
     category: "Postgraduate Certificate Programmes",
     price: {
 
@@ -10366,7 +10366,7 @@ export const courses: Course[] = [
     slug: "blockchain-decentralised-systems",
     title: "Blockchain & Decentralised Systems",
     description: "A Postgraduate Certificate Programme covering distributed ledgers, smart contracts, DeFi and Web3 architecture across 15 modules and 150 contact hours.",
-    months: "6",
+    months: "6 Months",
     price: {
 
       offer: 108999
@@ -10608,7 +10608,7 @@ export const courses: Course[] = [
     slug: "data-science-machine-learning-ai-engineering",
     title: "Data Science, Machine Learning & AI Engineering",
     description: "A Postgraduate Certificate Programme covering Python, statistical analysis, machine learning, deep learning, NLP, LLMs and MLOps across 15+ modules and 150 contact hours.",
-    months: "6",
+    months: "6 Months",
     price: {
 
       offer: 108999
