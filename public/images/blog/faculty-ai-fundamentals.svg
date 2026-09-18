@@ -1,0 +1,48 @@
+<svg viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#064e3b"/>
+      <stop offset="50%" stop-color="#0b1c2d"/>
+      <stop offset="100%" stop-color="#0b1c2d"/>
+    </linearGradient>
+    <radialGradient id="glow3" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#10b981" stop-opacity="0.32"/>
+      <stop offset="100%" stop-color="#10b981" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="dots3" width="26" height="26" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.4" fill="#ffffff" fill-opacity="0.08"/>
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg3)"/>
+  <rect width="1200" height="630" fill="url(#dots3)"/>
+  <circle cx="900" cy="470" r="260" fill="url(#glow3)"/>
+  <circle cx="180" cy="120" r="200" fill="url(#glow3)"/>
+
+  <!-- open book -->
+  <g transform="translate(220,340)">
+    <path d="M0 -60 C -70 -90, -160 -80, -190 -60 L -190 90 C -160 70, -70 60, 0 90 Z" fill="#0f2c3f" stroke="#34d399" stroke-opacity="0.6" stroke-width="3"/>
+    <path d="M0 -60 C 70 -90, 160 -80, 190 -60 L 190 90 C 160 70, 70 60, 0 90 Z" fill="#0f2c3f" stroke="#34d399" stroke-opacity="0.6" stroke-width="3"/>
+    <path d="M-150 -50 C -110 -62, -60 -58, -20 -42 M-150 -18 C -110 -30, -60 -26, -20 -10 M-150 14 C -110 2, -60 6, -20 22"
+          stroke="#6ee7b7" stroke-opacity="0.55" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <path d="M150 -50 C 110 -62, 60 -58, 20 -42 M150 -18 C 110 -30, 60 -26, 20 -10 M150 14 C 110 2, 60 6, 20 22"
+          stroke="#6ee7b7" stroke-opacity="0.55" stroke-width="3" fill="none" stroke-linecap="round"/>
+  </g>
+
+  <!-- neural / idea nodes rising from the book -->
+  <g stroke="#34d399" stroke-width="2" stroke-opacity="0.55">
+    <line x1="220" y1="280" x2="360" y2="180"/>
+    <line x1="220" y1="280" x2="460" y2="230"/>
+    <line x1="360" y1="180" x2="520" y2="150"/>
+    <line x1="460" y1="230" x2="520" y2="150"/>
+    <line x1="520" y1="150" x2="640" y2="110"/>
+  </g>
+  <circle cx="220" cy="280" r="8" fill="#34d399"/>
+  <circle cx="360" cy="180" r="7" fill="#6ee7b7"/>
+  <circle cx="460" cy="230" r="7" fill="#6ee7b7"/>
+  <circle cx="520" cy="150" r="9" fill="#34d399"/>
+  <circle cx="640" cy="110" r="14" fill="#d4af37"/>
+  <circle cx="640" cy="110" r="24" fill="#d4af37" fill-opacity="0.25"/>
+
+  <text x="700" y="500" font-family="Arial, sans-serif" font-size="22" letter-spacing="4" fill="#6ee7b7" opacity="0.9">FACULTY INSIGHTS</text>
+</svg>

@@ -2,6 +2,7 @@ import "../styles/globals.css"
 import type { AppProps } from "next/app"
 import Head from "next/head"
 import { Toaster } from "sonner";
+import SupportWidget from "../components/SupportWidget";
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
@@ -18,6 +19,8 @@ export default function App({ Component, pageProps }: AppProps) {
 
       <Component {...pageProps} />
       <Toaster position="top-right" richColors />
+      {/* Site-wide: Call / WhatsApp / FAQ chatbot (item 7) */}
+      <SupportWidget />
     </>
   )
 }

@@ -23,7 +23,27 @@ export interface Course {
   };
   rating?: number;
   brochureContent: string;
+  /** Outcome-based content: skills gained, career pathways, placement/performance outcomes.
+   *  Optional — falls back to sensible auto-generated content (see ProgrammeOutcomes.tsx)
+   *  until the content team fills this in per programme. */
+  outcomes?: {
+    skills: string[];
+    careerPathways: string[];
+    placementHighlights: string[];
+  };
+  /** Cities where this programme currently runs a live batch. */
+  batchLocations?: ("Salem" | "Bengaluru")[];
+  /** Group/batch enrolment discount tiers for this programme. Percent off per-seat price. */
+  groupDiscount?: { minSeats: number; discountPercent: number }[];
 }
+
+/** Default group-discount ladder applied when a course doesn't define its own.
+ *  TODO(client): confirm final discount percentages/seat thresholds before go-live. */
+export const defaultGroupDiscount: { minSeats: number; discountPercent: number }[] = [
+  { minSeats: 3, discountPercent: 10 },
+  { minSeats: 5, discountPercent: 15 },
+  { minSeats: 10, discountPercent: 20 },
+];
 
 // Sona Tech School — Programme Portfolio
 // Sourced from: Sona Tech School Prospectus 2026-27 (SCALE — Sona Centre for Advanced Learning & Entrepreneurship)
@@ -48,6 +68,31 @@ export const courses: Course[] = [
       mentorship: true,
       careerSupport: true
     },
+    batchLocations: ["Salem", "Bengaluru"],
+    outcomes: {
+      skills: [
+        "Applied Python & data structures for production code",
+        "Full-stack web development (frontend + backend + APIs)",
+        "Core AI/ML foundations — model building & evaluation",
+        "Capstone project delivery using an agile workflow",
+      ],
+      careerPathways: [
+        "Software Engineer / Full-Stack Developer",
+        "AI/ML Engineer (entry-level)",
+        "Application Developer",
+        "Product Engineering Associate",
+      ],
+      placementHighlights: [
+        "Capstone project reviewed by hiring-partner engineers",
+        "Resume & interview prep tied to this programme's stack",
+        "Access to SCALE's campus placement drives for eligible learners",
+      ],
+    },
+    groupDiscount: [
+      { minSeats: 3, discountPercent: 10 },
+      { minSeats: 5, discountPercent: 15 },
+      { minSeats: 10, discountPercent: 20 },
+    ],
     brochureContent: `
       <!-- ================= Program Information ================= -->
      <!-- ================= Program Information ================= -->

@@ -4,6 +4,7 @@ import { courseOgImage, SITE_URL } from "../../../lib/seo";
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import SpeedSection from "../../../components/Drop";
+import ProgrammeOutcomes from "../../../components/ProgrammeOutcomes";
 import { createJoiner } from "../../../lib/api/joiner";
 import { toast } from "sonner";
 import {
@@ -373,6 +374,9 @@ export default function CoursePage({ course }: Props) {
                 </section>
             )}
 
+            {/* ================= OUTCOME-BASED CONTENT: SKILLS, CAREER PATHWAYS, PLACEMENT, BATCH LOCATIONS, GROUP DISCOUNT ================= */}
+            <ProgrammeOutcomes course={course} />
+
             {/* ================= EXPLORE RELATED COURSES ================= */}
             {relatedCourses.length > 0 && (
                 <section className="py-6 bg-gray-50">
@@ -497,6 +501,7 @@ export default function CoursePage({ course }: Props) {
                         <p className="text-sm text-slate-500 text-center mb-6">
                             {course.title}
                         </p>
+                        
 
                         <form
                             onSubmit={async (e) => {

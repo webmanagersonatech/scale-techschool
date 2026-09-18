@@ -1,0 +1,50 @@
+<svg viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b1c2d"/>
+      <stop offset="60%" stop-color="#12263a"/>
+      <stop offset="100%" stop-color="#3d2c12"/>
+    </linearGradient>
+    <radialGradient id="glow2" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#d4af37" stop-opacity="0.30"/>
+      <stop offset="100%" stop-color="#d4af37" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid2" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" fill="none" stroke="#ffffff" stroke-opacity="0.05" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg2)"/>
+  <rect width="1200" height="630" fill="url(#grid2)"/>
+  <circle cx="950" cy="180" r="260" fill="url(#glow2)"/>
+  <circle cx="150" cy="520" r="200" fill="url(#glow2)"/>
+
+  <!-- winding path from classroom to career -->
+  <path d="M80 500 C 260 500, 260 380, 430 380 S 600 260, 780 260 S 950 150, 1120 150"
+        fill="none" stroke="#d4af37" stroke-width="5" stroke-dasharray="2 16" stroke-linecap="round" opacity="0.85"/>
+
+  <!-- milestone markers -->
+  <circle cx="80" cy="500" r="12" fill="#94a3b8"/>
+  <circle cx="430" cy="380" r="10" fill="#d4af37" opacity="0.8"/>
+  <circle cx="780" cy="260" r="10" fill="#d4af37" opacity="0.9"/>
+  <circle cx="1120" cy="150" r="16" fill="#d4af37"/>
+  <circle cx="1120" cy="150" r="26" fill="#d4af37" fill-opacity="0.25"/>
+
+  <!-- graduation cap glyph near start -->
+  <g transform="translate(80,500)">
+    <circle r="70" fill="#0b1c2d" stroke="#d4af37" stroke-opacity="0.5" stroke-width="2"/>
+    <path d="M-34 -6 L0 -22 L34 -6 L0 10 Z" fill="#d4af37"/>
+    <path d="M-18 2 v20 c0 8 36 8 36 0 v-20" fill="none" stroke="#d4af37" stroke-width="4" stroke-linecap="round"/>
+    <line x1="34" y1="-6" x2="34" y2="20" stroke="#d4af37" stroke-width="3"/>
+  </g>
+
+  <!-- briefcase glyph near end -->
+  <g transform="translate(1120,150)">
+    <circle r="70" fill="#0b1c2d" stroke="#d4af37" stroke-opacity="0.6" stroke-width="2"/>
+    <rect x="-26" y="-6" width="52" height="36" rx="6" fill="none" stroke="#d4af37" stroke-width="4"/>
+    <path d="M-12 -6 v-8 a12 12 0 0 1 24 0 v8" fill="none" stroke="#d4af37" stroke-width="4"/>
+    <line x1="-26" y1="12" x2="26" y2="12" stroke="#d4af37" stroke-width="3"/>
+  </g>
+
+  <text x="90" y="110" font-family="Arial, sans-serif" font-size="22" letter-spacing="4" fill="#eab84f" opacity="0.9">STUDENT STORIES</text>
+</svg>

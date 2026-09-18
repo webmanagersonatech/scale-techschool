@@ -2,6 +2,8 @@ import Navbar from "../components/Navbar"
 import Footer from "../components/Footer"
 import Breadcrumb from "../components/Breadcrumb"
 import SEO from "../components/SEO"
+import PresenceSection from "../components/PresenceSection"
+import PerformanceOutcomes from "../components/PerformanceOutcomes"
 
 const stats = [
   { value: "105", label: "Years of Group Legacy" },
@@ -109,7 +111,56 @@ export default function AboutPage() {
           </p>
           <p className="mt-2 text-royal font-semibold">Backed by a 105-Year Legacy</p>
         </section>
+
+        {/* Expanded: About SCALE */}
+        <section className="max-w-7xl mx-auto px-6 mt-20">
+          <h2 className="text-3xl font-heading font-bold text-royal mb-4">
+            About SCALE
+          </h2>
+          <div className="grid md:grid-cols-2 gap-8 text-gray-600 leading-relaxed">
+            <p>
+              SCALE — the Sona Centre for Advanced Learning & Entrepreneurship — was set up to
+              close the gap between what colleges teach and what the industry actually needs on
+              day one. It sits at the intersection of the Sona Group's century-plus academic
+              legacy and a fast-moving industry advisory network, translating both into
+              structured, outcome-driven learning tracks.
+            </p>
+            <p>
+              Rather than one-size-fits-all training, SCALE designs programme tracks around
+              specific academic streams — Computer Science, Mechanical & Mechatronics,
+              Electronics & Communication, and Management & Analytics — so that every learner
+              gets a curriculum built for their background and career direction, not a generic
+              add-on course.
+            </p>
+          </div>
+        </section>
+
+        {/* Expanded: About Sona Tech School */}
+        <section className="max-w-7xl mx-auto px-6 mt-14">
+          <h2 className="text-3xl font-heading font-bold text-royal mb-4">
+            About Sona Tech School
+          </h2>
+          <div className="grid md:grid-cols-2 gap-8 text-gray-600 leading-relaxed">
+            <p>
+              Sona Tech School is SCALE's technology-focused teaching arm, delivering diploma and
+              certification programmes in AI, Data Science, Software Engineering, Cybersecurity,
+              Electronics and Mechatronics. Programmes combine instructor-led sessions,
+              hands-on labs, and a capstone project so learners graduate with a portfolio, not
+              just a certificate.
+            </p>
+            <p>
+              Live batches currently run out of Salem and Bengaluru, with mentorship and career
+              support built into most programmes — connecting learners to SCALE's placement
+              network of hiring partners upon successful completion.
+            </p>
+          </div>
+        </section>
       </main>
+
+      {/* Where We Are + Performance Outcomes (items 10 & 11) */}
+      <PresenceSection />
+      <PerformanceOutcomes />
+
       <Footer />
     </>
   )

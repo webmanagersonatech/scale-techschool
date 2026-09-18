@@ -2,12 +2,14 @@
 import Footer from "../components/Footer"
 import Navbar from "../components/Navbar"
 import Hero from "../components/Hero"
-import Testimonials from "../components/Testimonials"
 import PackageSection from "../components/package"
 import TechnologyProgramsCarousel from "../components/TechnologyProgramsCarousel"
 import PlacedCompanies from "../components/PlacedCompanies"
-import AdvisorBot from "../components/AdvisorBot"
 import SEO from "../components/SEO"
+import PerformanceOutcomes from "../components/PerformanceOutcomes"
+import PresenceSection from "../components/PresenceSection"
+import ContactSection from "../components/ContactSection"
+import PromoStrip from "../components/PromoStrip"
 import { SITE_NAME, SITE_URL } from "../lib/seo"
 
 export default function Home() {
@@ -27,12 +29,13 @@ export default function Home() {
       />
       <Navbar />
       <Hero />
+      <PromoStrip />
       <PackageSection />
       <TechnologyProgramsCarousel />
       <PlacedCompanies />
-      <Testimonials />
- 
-      <AdvisorBot/>
+      <PerformanceOutcomes />
+      <PresenceSection />
+      <ContactSection />
       <Footer />
     </>
   )

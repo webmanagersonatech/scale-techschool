@@ -21,6 +21,7 @@ const navItems = [
     })),
   },
   { name: "Admissions", href: "/admissions" },
+  { name: "Blog", href: "/blog" },
   { name: "Teams", href: "/faculty" },
   { name: "Contact", href: "/contact" },
 ];

@@ -1,0 +1,54 @@
+<svg viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b1c2d"/>
+      <stop offset="55%" stop-color="#0f2c3f"/>
+      <stop offset="100%" stop-color="#064e3b"/>
+    </linearGradient>
+    <linearGradient id="line1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#34d399" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#34d399" stop-opacity="0.9"/>
+    </linearGradient>
+    <radialGradient id="glow1" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#10b981" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#10b981" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid1" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" fill="none" stroke="#ffffff" stroke-opacity="0.05" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg1)"/>
+  <rect width="1200" height="630" fill="url(#grid1)"/>
+  <circle cx="980" cy="150" r="260" fill="url(#glow1)"/>
+  <circle cx="120" cy="560" r="220" fill="url(#glow1)"/>
+
+  <!-- abstract rising bar / trend chart -->
+  <g opacity="0.9">
+    <rect x="150" y="430" width="46" height="110" rx="6" fill="#ffffff" fill-opacity="0.12"/>
+    <rect x="216" y="380" width="46" height="160" rx="6" fill="#ffffff" fill-opacity="0.16"/>
+    <rect x="282" y="320" width="46" height="220" rx="6" fill="#ffffff" fill-opacity="0.22"/>
+    <rect x="348" y="250" width="46" height="290" rx="6" fill="#34d399"/>
+    <path d="M150 420 L216 368 L282 306 L348 236 L410 190" stroke="url(#line1)" stroke-width="5" fill="none" stroke-linecap="round"/>
+    <circle cx="410" cy="190" r="10" fill="#34d399"/>
+    <circle cx="410" cy="190" r="18" fill="#34d399" fill-opacity="0.25"/>
+  </g>
+
+  <!-- circuit dots -->
+  <g stroke="#34d399" stroke-opacity="0.4" stroke-width="2">
+    <path d="M850 480 h90 v-60 h60" fill="none"/>
+    <path d="M900 200 v70 h-70" fill="none"/>
+  </g>
+  <circle cx="940" cy="420" r="5" fill="#34d399"/>
+  <circle cx="1000" cy="480" r="5" fill="#6ee7b7"/>
+  <circle cx="900" cy="270" r="5" fill="#6ee7b7"/>
+  <circle cx="830" cy="270" r="5" fill="#34d399"/>
+
+  <!-- kicker + big glyph -->
+  <text x="90" y="120" font-family="Arial, sans-serif" font-size="22" letter-spacing="4" fill="#6ee7b7" opacity="0.85">INDUSTRY TRENDS</text>
+  <g transform="translate(870,300)" opacity="0.9">
+    <circle cx="0" cy="0" r="86" fill="#0b1c2d" stroke="#34d399" stroke-opacity="0.5" stroke-width="2"/>
+    <path d="M-38 20 L-14 -6 L10 12 L42 -30" stroke="#34d399" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M22 -30 H42 V-10" stroke="#34d399" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg>
