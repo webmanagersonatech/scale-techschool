@@ -5,9 +5,9 @@ import { ArrowUpRight } from "lucide-react";
 // Using placeholder links (#) where a live URL wasn't supplied — swap these in
 // before launch, ideally tagged for campaign tracking (utm_source=techschool).
 const properties = [
-  { name: "Sona Group of Institutions", href: "#" },
-  { name: "Sona Finishing School", href: "#" },
-  { name: "SCALE — Sona Centre for Advanced Learning & Entrepreneurship", href: "#" },
+
+  { name: "Sona Finishing School", href: "https://scaleindia.in/institutions/sona-finishing-school" },
+  { name: "SCALE — Sona Centre for Advanced Learning & Entrepreneurship", href: "https://scaleindia.in/" },
 ];
 
 export default function PromoStrip() {

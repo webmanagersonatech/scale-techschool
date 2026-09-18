@@ -51,7 +51,7 @@ export default function PerformanceOutcomes() {
               className="relative rounded-xl overflow-hidden border border-slate-200 shadow-[0_18px_40px_-20px_rgba(22,35,61,0.35)] h-[160px] sm:h-[175px] md:h-[190px]"
             >
               <img
-                src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=900&q=80"
+                src="https://images.unsplash.com/photo-1758874573138-f3dd1ed25c7e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTUwfHx0ZWNoJTIwc2Nob29sfGVufDB8MHwwfHx8MA%3D%3D"
                 alt="Learners collaborating on a project"
                 className="absolute inset-0 w-full h-full object-cover"
               />
