@@ -79,7 +79,7 @@ export default function BlogPostPage({ post }: Props) {
             >
               <ArrowLeft size={16} /> Back to all posts
             </Link>
-            <ShareIcons url={shareUrl} title={post.title} />
+           
           </div>
 
           {related.length > 0 && (
