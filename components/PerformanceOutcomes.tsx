@@ -43,19 +43,36 @@ export default function PerformanceOutcomes() {
 
           {/* Right: photo with stamped stat card at the corner */}
           <div className="relative pl-6 pb-9">
-            <motion.div
-              initial={{ opacity: 0, y: 12 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="relative rounded-xl overflow-hidden border border-slate-200 shadow-[0_18px_40px_-20px_rgba(22,35,61,0.35)] h-[160px] sm:h-[175px] md:h-[190px]"
-            >
-              <img
-                src="https://images.unsplash.com/photo-1758874573138-f3dd1ed25c7e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTUwfHx0ZWNoJTIwc2Nob29sfGVufDB8MHwwfHx8MA%3D%3D"
-                alt="Learners collaborating on a project"
-                className="absolute inset-0 w-full h-full object-cover"
-              />
-            </motion.div>
+  <motion.div
+  initial={{ opacity: 0, y: 12 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true }}
+  transition={{ duration: 0.5, delay: 0.1 }}
+  className="group relative h-[140px] sm:h-[155px] md:h-[170px] overflow-hidden rounded-r-3xl border border-slate-200 bg-slate-100 shadow-[0_20px_50px_-20px_rgba(22,35,61,0.35)]"
+>
+  <img
+    src="https://images.unsplash.com/photo-1758874573138-f3dd1ed25c7e?w=1000&auto=format&fit=crop&q=80"
+    alt="Learners collaborating on a project"
+    className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+  />
+
+  {/* Gradient */}
+  <div className="absolute inset-0 bg-gradient-to-l from-slate-950/70 via-slate-900/20 to-transparent" />
+
+  {/* Right aligned content */}
+  <div className="absolute inset-y-0 right-0 flex w-[55%] flex-col justify-center items-end text-right p-5 sm:p-6">
+    <p className="text-[10px] sm:text-xs font-semibold uppercase tracking-[0.18em] text-white/70">
+      Technology & Innovation
+    </p>
+
+    <h3 className="mt-1 text-lg sm:text-xl font-semibold text-white">
+      Learn. Build. Innovate.
+    </h3>
+  </div>
+
+  {/* Decorative corner */}
+  <div className="absolute right-4 top-4 h-8 w-8 rounded-full border border-white/30 bg-white/10 backdrop-blur-md" />
+</motion.div>
 
             {/* stamp-style stat card */}
             <motion.div

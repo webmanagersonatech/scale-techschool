@@ -15,7 +15,7 @@ export default function PromoStrip() {
     <div className="bg-royal/95 text-white text-sm font-poppins">
       <div className="max-w-7xl mx-auto px-6 py-2.5 flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-6">
         <span className="text-white/60 text-xs uppercase tracking-wide shrink-0">
-          Part of the Sona / SCALE family:
+          Part of the Sona / SCALE :
         </span>
         <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-1">
           {properties.map((p) => (
