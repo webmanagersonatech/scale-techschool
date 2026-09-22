@@ -160,14 +160,14 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row justify-between items-center py-6 text-sm text-white/70">
           <p>© {new Date().getFullYear()} Sona Tech-School. All rights reserved.</p>
 
-          {/* <div className="flex gap-6 mt-4 md:mt-0">
-            <Link href="#privacy" className="hover:text-gold transition">
+          <div className="flex gap-6 mt-4 md:mt-0">
+            <Link href="/privacy-policy" className="hover:text-gold transition">
               Privacy Policy
             </Link>
-            <Link href="#terms" className="hover:text-gold transition">
+            <Link href="/terms-and-conditions" className="hover:text-gold transition">
               Terms & Conditions
             </Link>
-          </div> */}
+          </div>
         </div>
       </div>
     </footer>
