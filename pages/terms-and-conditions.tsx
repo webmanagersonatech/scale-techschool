@@ -147,7 +147,7 @@ export default function TermsAndConditionsPage() {
                 {sec.contact && (
                   <div className="mt-4 bg-gray-50 rounded-2xl p-6 text-sm text-gray-600 space-y-2">
                     <p className="font-semibold text-royal">Sona Tech-School (SCALE)</p>
-                    <p>#43/1A, Billekempanahalli village, Bidadi Hobli, Ramanagara – 562109, Karnataka, India.</p>
+                   <p>Sona Towers, 71 Millers Road, Vasanth Nagar, Bengaluru – 560052, Karnataka, India.</p>
                     <p>Email: contact@scaleindia.in</p>
                     <p>Phone: +91 94425 92175</p>
                   </div>

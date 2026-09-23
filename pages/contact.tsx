@@ -136,10 +136,9 @@ export default function ContactPage() {
   };
 
   const inputClass = (field: keyof typeof errors) =>
-    `pl-8 py-3 w-full border-b outline-none text-sm transition-colors ${
-      touched[field] && errors[field]
-        ? "border-red-400 focus:border-red-500"
-        : "border-gray-300 focus:border-emerald-500"
+    `pl-8 py-3 w-full border-b outline-none text-sm transition-colors ${touched[field] && errors[field]
+      ? "border-red-400 focus:border-red-500"
+      : "border-gray-300 focus:border-emerald-500"
     }`;
 
   return (
@@ -206,10 +205,13 @@ export default function ContactPage() {
 
                     <li className="flex items-start gap-3 text-emerald-400">
                       <FaMapMarkerAlt className="w-5 h-5 mt-0.5 shrink-0" />
+
                       <span className="text-[15px] leading-relaxed">
-                        #43/1A, Billekempanahalli village, Bidadi Hobli,<br />
-                        Ramanagara – 562109, Karnataka, India.
+                        Sona Towers, 71 Millers Road, Vasanth Nagar,<br />
+                        Bengaluru – 560052, Karnataka, India.
                       </span>
+
+
                     </li>
                   </ul>
 
@@ -340,11 +342,10 @@ export default function ContactPage() {
                             onBlur={handleBlur}
                             placeholder="Write Message"
                             rows={4}
-                            className={`pl-8 pt-3 w-full border-b outline-none text-sm transition-colors ${
-                              touched.message && errors.message
+                            className={`pl-8 pt-3 w-full border-b outline-none text-sm transition-colors ${touched.message && errors.message
                                 ? "border-red-400 focus:border-red-500"
                                 : "border-gray-300 focus:border-emerald-500"
-                            }`}
+                              }`}
                             required
                           ></textarea>
                           {touched.message && errors.message && (

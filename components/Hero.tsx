@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import {
-  ArrowRight, Brain, Cpu, Target, Instagram,
+  Linkedin, Brain, Cpu, Target, Instagram,
   Facebook,
   X,
 } from "lucide-react";
@@ -225,9 +225,14 @@ export default function Hero() {
         <div className="h-10 w-px bg-gradient-to-b from-transparent via-white/40 to-transparent" />
 
         {[
-          { Icon: Instagram, label: "Instagram", hoverColor: "group-hover:text-pink-500", url: "https://www.instagram.com/sona_mba/?hl=en" },
-          { Icon: Facebook, label: "Facebook", hoverColor: "group-hover:text-blue-500", url: "https://www.facebook.com/sonamanagement" },
-          { Icon: X, label: "Twitter / X", hoverColor: "group-hover:text-black", url: "https://x.com/sonamba" },
+          { Icon: Instagram, label: "Instagram", hoverColor: "group-hover:text-pink-500", url: "https://www.instagram.com/scale_blr" },
+          {
+            Icon: Linkedin,
+            label: "LinkedIn",
+            hoverColor: "group-hover:text-blue-500",
+            url: "https://www.linkedin.com/company/scale-sona-centre-for-advanced-learning-entrepreneurship/"
+          },
+          { Icon: X, label: "Twitter / X", hoverColor: "group-hover:text-black", url: "https://x.com/scale_blr" },
         ].map(({ Icon, label, hoverColor, url }, i) => (
           <div key={i} className="flex flex-col items-center gap-2">
 

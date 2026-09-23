@@ -30,13 +30,16 @@ const contactDetails = [
     value: "contact@scaleindia.in",
     href: "mailto:contact@scaleindia.in",
   },
+
   {
     icon: MapPin,
     label: "Visit us",
     value:
-      "#43/1A, Billekempanahalli village, Bidadi Hobli, Ramanagara – 562109, Karnataka, India.",
-    href: "https://maps.google.com/?q=Billekempanahalli+village+Bidadi+Hobli+Ramanagara",
+      "Sona Towers, 71 Millers Road, Vasanth Nagar, Bengaluru – 560052, Karnataka, India.",
+    href: "https://maps.google.com/?q=Sona+Towers+71+Millers+Road+Vasanth+Nagar+Bengaluru",
   },
+
+
 ];
 
 export default function ContactSection() {
@@ -90,37 +93,37 @@ export default function ContactSection() {
 
   return (
     <section id="contact" className="relative py-20 bg-white font-poppins overflow-hidden">
-  
+
 
       <div className="max-w-7xl mx-auto px-6 relative">
         <div className="h-[3px] w-16 bg-[#A9762E] mb-2" />
 
-       <motion.div
-  initial={{ opacity: 0, y: 16 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  viewport={{ once: true }}
-  transition={{ duration: 0.5 }}
-  className="mb-14 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12 items-end"
->
-  {/* Left */}
-  <div>
-    <p className="text-emerald-700 font-semibold text-sm mb-3">
-      Get in touch
-    </p>
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="mb-14 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12 items-end"
+        >
+          {/* Left */}
+          <div>
+            <p className="text-emerald-700 font-semibold text-sm mb-3">
+              Get in touch
+            </p>
 
-    <h2 className="font-heading text-2xl md:text-3xl lg:text-4xl text-royal leading-tight">
-      We&apos;d love to hear from you
-    </h2>
-  </div>
+            <h2 className="font-heading text-2xl md:text-3xl lg:text-4xl text-royal leading-tight">
+              We&apos;d love to hear from you
+            </h2>
+          </div>
 
-  {/* Right */}
-  <div className="md:pb-1">
-    <p className="text-slate-500 leading-relaxed max-w-lg">
-      Have a question about a programme, admissions, or batch enrolments?
-      Reach out and our team will get back to you.
-    </p>
-  </div>
-</motion.div>
+          {/* Right */}
+          <div className="md:pb-1">
+            <p className="text-slate-500 leading-relaxed max-w-lg">
+              Have a question about a programme, admissions, or batch enrolments?
+              Reach out and our team will get back to you.
+            </p>
+          </div>
+        </motion.div>
 
         <div className="grid lg:grid-cols-[0.85fr_1.15fr] gap-14 lg:gap-16 items-stretch">
           {/* Left: location photo (fills column height) + stamp + ledger contact list */}
